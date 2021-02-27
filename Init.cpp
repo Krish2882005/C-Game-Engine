@@ -2,20 +2,18 @@
 #include <iostream>
 #include "Player.h"
 #include "Map.h"
-#include "Gui.h"
 
 constexpr int ScreenWidth = 1080;
 constexpr int ScreenHeight = 720;
 
 //Player player;
 //Map map;
-Gui gui;
 
-SDL_Renderer* Init::Renderer = nullptr;
+SDL_Renderer* Init::renderer = nullptr;
 
-SDL_Event Init::Event;
+SDL_Event Init::event;
 
-void Init::Init_SDL2()
+Init::Init()
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
@@ -25,19 +23,19 @@ void Init::Init_SDL2()
 			std::cout << "SDL_image Cannot Init" << std::endl;
 			return;
 		}
+		
+		window = SDL_CreateWindow("Box2D Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, ScreenWidth, ScreenHeight, SDL_WINDOW_RESIZABLE);
 
-		Window = SDL_CreateWindow("Box2D Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, ScreenWidth, ScreenHeight, SDL_WINDOW_RESIZABLE);
-
-		if (Window == nullptr)
+		if (window == nullptr)
 		{
 			std::cout << "window Is A Nullptr" << std::endl;
 			m_IsRunning = false;
 			return;
 		}
 
-		Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED || SDL_RENDERER_PRESENTVSYNC);
+		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED || SDL_RENDERER_PRESENTVSYNC);
 
-		if (Renderer == nullptr)
+		if (renderer == nullptr)
 		{
 			std::cout << "renderer Is A Nullptr" << std::endl;
 			m_IsRunning = false;
@@ -57,48 +55,48 @@ void Init::Init_SDL2()
 	//player.Init();
 }
 
+Init::~Init()
+{
+
+}
+
 void Init::Load()
 {
 	//player.Load();
 	//map.Load();
-	gui.InitGui();
-	TestGuiMenu = gui.CreateGuiMenu("Menu", true, 200, 200, 100, 100, "TestGui");
-	gui.CreateGuiOptions(TestGuiMenu, "Slider", "TestSlider");
 }
 
 void Init::Events()
 {
-	SDL_PollEvent(&Event);
+	SDL_PollEvent(&event);
 
-	if(Event.type == SDL_QUIT)
+	if(event.type == SDL_QUIT)
 	{
 		m_IsRunning = false;
 	}
 
 	//player.Events();
-
-	gui.InputHandling();
 }
 
 void Init::Update()
 {
 	//player.Update();
-	gui.Update();
 }
 
 void Init::Draw()
 {
-	SDL_RenderClear(Renderer);
+	SDL_RenderClear(renderer);
 	//map.Draw();
 	//player.Draw();
-	gui.Draw();
-	SDL_RenderPresent(Renderer);
+	SDL_RenderPresent(renderer);
 }
 
 void Init::Clean()
 {
 	//player.Clean();
 	//map.Clean();
-	SDL_DestroyWindow(Window);
-	SDL_DestroyRenderer(Renderer);
+	window = nullptr;
+	renderer = nullptr;
+	SDL_DestroyWindow(window);
+	SDL_DestroyRenderer(renderer);
 }
