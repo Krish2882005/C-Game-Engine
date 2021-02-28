@@ -5,8 +5,6 @@
 class Init
 {
 	public:
-		Init();
-		~Init();
 		void Init_SDL2();
 		void Load();
 		void Events();
