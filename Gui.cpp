@@ -29,3 +29,24 @@ std::array<int, 2> Gui::InputHandling()
 		}
 	}
 }
+
+int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, std::string GuiTitle)
+{
+
+	return 0;
+}
+
+void Gui::CreateGuiOptions(int GuiTokenNumber)
+{
+
+}
+
+void Gui::DelGui(int GuiTokenNumber)
+{
+
+}
+
+void Gui::Update()
+{
+
+}
