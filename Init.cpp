@@ -102,8 +102,6 @@ void Init::Clean()
 {
 	//player.Clean();
 	//map.Clean();
-	Window = nullptr;
-	Renderer = nullptr;
 	SDL_DestroyWindow(Window);
 	SDL_DestroyRenderer(Renderer);
 }
