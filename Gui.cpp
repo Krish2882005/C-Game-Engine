@@ -4,23 +4,21 @@
 
 std::array<int, 2> Gui::InputHandling()
 {
-	Init init_inputhandling;
-
-	switch (init_inputhandling.Event.type)
+	switch (Init::Event.type)
 	{
 		case SDL_MOUSEMOTION:
 		{
-			MouseX = init_inputhandling.Event.motion.x;
-			MouseY = init_inputhandling.Event.motion.y;
+			MouseX = Init::Event.motion.x;
+			MouseY = Init::Event.motion.y;
 			return { 0, 0 };
 			break;
 		}
 		case SDL_MOUSEBUTTONDOWN:
 		{
-			if (init_inputhandling.Event.button.button == 1)
+			if (Init::Event.button.button == 1)
 			{
-				MouseX = init_inputhandling.Event.motion.x;
-				MouseY = init_inputhandling.Event.motion.y;
+				MouseX = Init::Event.motion.x;
+				MouseY = Init::Event.motion.y;
 				std::cout << MouseX << std::endl;
 				return { MouseX , MouseY };
 			}

@@ -25,7 +25,7 @@ Init::Init()
 			std::cout << "SDL_image Cannot Init" << std::endl;
 			return;
 		}
-		
+
 		Window = SDL_CreateWindow("Box2D Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, ScreenWidth, ScreenHeight, SDL_WINDOW_RESIZABLE);
 
 		if (Window == nullptr)
@@ -60,6 +60,10 @@ Init::Init()
 Init::~Init()
 {
 
+}
+
+void Init::Init_SDL2()
+{
 }
 
 void Init::Load()

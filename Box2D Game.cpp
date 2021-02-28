@@ -5,6 +5,7 @@ int main(int argc, char** argv)
 {
 	Init init;
 
+	init.Init_SDL2();
 	init.Load();
 
 	while (init.IsRunning())
