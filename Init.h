@@ -13,9 +13,9 @@ class Init
 		void Draw();
 		void Clean();
 		inline bool IsRunning() { return m_IsRunning; }
-		static SDL_Renderer* renderer;
-		static SDL_Event event;
+		static SDL_Renderer* Renderer;
+		static SDL_Event Event;
 	private:
 		bool m_IsRunning = false;
-		SDL_Window* window = nullptr;
+		SDL_Window* Window = nullptr;
 };

@@ -89,6 +89,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\SDL2\SDL2-2.0.14\include;C:\SDL2\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,6 +107,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\SDL2\SDL2-2.0.14\include;C:\SDL2\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,6 +125,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\SDL2\SDL2-2.0.14\include;C:\SDL2\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +143,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\SDL2\SDL2-2.0.14\include;C:\SDL2\SDL2_image-2.0.5\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,47 +155,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_allegro5.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_dx10.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_dx11.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_dx12.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_dx9.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_glfw.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_glut.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_marmalade.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_opengl2.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_sdl.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_vulkan.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_wgpu.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_win32.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_allegro5\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_emscripten_opengl3\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_emscripten_wgpu\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_glfw_opengl2\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_glfw_opengl3\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_glfw_vulkan\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_glut_opengl2\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_marmalade\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_null\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_sdl_directx11\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_sdl_opengl2\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_sdl_opengl3\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_sdl_vulkan\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_win32_directx10\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_win32_directx11\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_win32_directx12\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\example_win32_directx9\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\libs\gl3w\GL\gl3w.c" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\examples\libs\usynergy\uSynergy.c" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\imgui.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\imgui_demo.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\imgui_draw.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\imgui_tables.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\imgui_widgets.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\misc\cpp\imgui_stdlib.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\misc\fonts\binary_to_compressed_c.cpp" />
-    <ClCompile Include="..\..\..\..\..\imgui-1.81\misc\freetype\imgui_freetype.cpp" />
     <ClCompile Include="Box2D Game.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
     <ClCompile Include="Init.cpp" />
@@ -202,37 +165,6 @@
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_allegro5.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_dx10.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_dx11.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_dx12.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_dx9.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_glfw.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_glut.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_marmalade.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_metal.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_opengl2.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_opengl3.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_osx.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_sdl.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_vulkan.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_wgpu.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\backends\imgui_impl_win32.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\examples\example_allegro5\imconfig_allegro5.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\examples\libs\gl3w\GL\gl3w.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\examples\libs\gl3w\GL\glcorearb.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\examples\libs\glfw\include\GLFW\glfw3.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\examples\libs\glfw\include\GLFW\glfw3native.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\examples\libs\usynergy\uSynergy.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\imconfig.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\imgui.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\imgui_internal.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\imstb_rectpack.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\imstb_textedit.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\imstb_truetype.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\misc\cpp\imgui_stdlib.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\misc\freetype\imgui_freetype.h" />
-    <ClInclude Include="..\..\..\..\..\imgui-1.81\misc\single_file\imgui_single_file.h" />
     <ClInclude Include="CollisionDetection.h" />
     <ClInclude Include="Init.h" />
     <ClInclude Include="InputHandling.h" />
@@ -240,10 +172,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Vector2.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\..\..\imgui-1.81\examples\example_emscripten_opengl3\shell_minimal.html" />
-    <None Include="..\..\..\..\..\imgui-1.81\examples\example_emscripten_wgpu\web\index.html" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

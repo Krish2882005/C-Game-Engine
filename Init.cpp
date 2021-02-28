@@ -9,9 +9,9 @@ constexpr int ScreenHeight = 720;
 //Player player;
 //Map map;
 
-SDL_Renderer* Init::renderer = nullptr;
+SDL_Renderer* Init::Renderer = nullptr;
 
-SDL_Event Init::event;
+SDL_Event Init::Event;
 
 Init::Init()
 {
@@ -24,18 +24,18 @@ Init::Init()
 			return;
 		}
 		
-		window = SDL_CreateWindow("Box2D Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, ScreenWidth, ScreenHeight, SDL_WINDOW_RESIZABLE);
+		Window = SDL_CreateWindow("Box2D Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, ScreenWidth, ScreenHeight, SDL_WINDOW_RESIZABLE);
 
-		if (window == nullptr)
+		if (Window == nullptr)
 		{
 			std::cout << "window Is A Nullptr" << std::endl;
 			m_IsRunning = false;
 			return;
 		}
 
-		renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED || SDL_RENDERER_PRESENTVSYNC);
+		Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED || SDL_RENDERER_PRESENTVSYNC);
 
-		if (renderer == nullptr)
+		if (Renderer == nullptr)
 		{
 			std::cout << "renderer Is A Nullptr" << std::endl;
 			m_IsRunning = false;
@@ -68,9 +68,9 @@ void Init::Load()
 
 void Init::Events()
 {
-	SDL_PollEvent(&event);
+	SDL_PollEvent(&Event);
 
-	if(event.type == SDL_QUIT)
+	if(Event.type == SDL_QUIT)
 	{
 		m_IsRunning = false;
 	}
@@ -85,18 +85,18 @@ void Init::Update()
 
 void Init::Draw()
 {
-	SDL_RenderClear(renderer);
+	SDL_RenderClear(Renderer);
 	//map.Draw();
 	//player.Draw();
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(Renderer);
 }
 
 void Init::Clean()
 {
 	//player.Clean();
 	//map.Clean();
-	window = nullptr;
-	renderer = nullptr;
-	SDL_DestroyWindow(window);
-	SDL_DestroyRenderer(renderer);
+	Window = nullptr;
+	Renderer = nullptr;
+	SDL_DestroyWindow(Window);
+	SDL_DestroyRenderer(Renderer);
 }
