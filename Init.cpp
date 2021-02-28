@@ -15,7 +15,7 @@ SDL_Renderer* Init::Renderer = nullptr;
 
 SDL_Event Init::Event;
 
-Init::Init()
+void Init::Init_SDL2()
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
@@ -55,15 +55,6 @@ Init::Init()
 
 	//map.Init();
 	//player.Init();
-}
-
-Init::~Init()
-{
-
-}
-
-void Init::Init_SDL2()
-{
 }
 
 void Init::Load()
