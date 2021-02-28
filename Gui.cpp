@@ -1,7 +1,8 @@
 #include "Gui.h"
 #include "Init.h"
+#include <iostream>
 
-std::array<int, 2> Gui::Update()
+std::array<int, 2> Gui::InputHandling()
 {
 	Init init_inputhandling;
 
@@ -20,6 +21,7 @@ std::array<int, 2> Gui::Update()
 			{
 				MouseX = init_inputhandling.Event.motion.x;
 				MouseY = init_inputhandling.Event.motion.y;
+				std::cout << MouseX << std::endl;
 				return { MouseX , MouseY };
 			}
 			break;

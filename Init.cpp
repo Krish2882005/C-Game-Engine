@@ -2,12 +2,14 @@
 #include <iostream>
 #include "Player.h"
 #include "Map.h"
+#include "Gui.h"
 
 constexpr int ScreenWidth = 1080;
 constexpr int ScreenHeight = 720;
 
 //Player player;
 //Map map;
+Gui gui;
 
 SDL_Renderer* Init::Renderer = nullptr;
 
@@ -80,6 +82,7 @@ void Init::Events()
 
 void Init::Update()
 {
+	gui.InputHandling();
 	//player.Update();
 }
 
