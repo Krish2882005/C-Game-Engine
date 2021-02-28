@@ -39,6 +39,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 
 	if (m_GuiTokenNumber == 1)
 	{
+		Gui1Title = GuiTitle;
 		SrcRect1.w = GuiWidth;
 		SrcRect1.w = GuiHeight;
 		SrcRect1.x = GuiXpos;
@@ -46,6 +47,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	}
 	else if (m_GuiTokenNumber == 2)
 	{
+		Gui2Title = GuiTitle;
 		SrcRect2.w = GuiWidth;
 		SrcRect2.w = GuiHeight;
 		SrcRect2.x = GuiXpos;
@@ -53,6 +55,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	}
 	else if (m_GuiTokenNumber == 3)
 	{
+		Gui3Title = GuiTitle;
 		SrcRect3.w = GuiWidth;
 		SrcRect3.w = GuiHeight;
 		SrcRect3.x = GuiXpos;
@@ -60,6 +63,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	}
 	else if (m_GuiTokenNumber == 4)
 	{
+		Gui4Title = GuiTitle;
 		SrcRect4.w = GuiWidth;
 		SrcRect4.w = GuiHeight;
 		SrcRect4.x = GuiXpos;
@@ -67,6 +71,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	}
 	else if (m_GuiTokenNumber == 5)
 	{
+		Gui5Title = GuiTitle;
 		SrcRect5.w = GuiWidth;
 		SrcRect5.w = GuiHeight;
 		SrcRect5.x = GuiXpos;
@@ -74,6 +79,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	}
 	else if (m_GuiTokenNumber == 6)
 	{
+		Gui6Title = GuiTitle;
 		SrcRect6.w = GuiWidth;
 		SrcRect6.w = GuiHeight;
 		SrcRect6.x = GuiXpos;
@@ -81,6 +87,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	}
 	else if (m_GuiTokenNumber == 7)
 	{
+		Gui7Title = GuiTitle;
 		SrcRect7.w = GuiWidth;
 		SrcRect7.w = GuiHeight;
 		SrcRect7.x = GuiXpos;
@@ -88,6 +95,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	}
 	else if (m_GuiTokenNumber == 8)
 	{
+		Gui8Title = GuiTitle;
 		SrcRect8.w = GuiWidth;
 		SrcRect8.w = GuiHeight;
 		SrcRect8.x = GuiXpos;
@@ -95,6 +103,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	}
 	else if (m_GuiTokenNumber == 9)
 	{
+		Gui9Title = GuiTitle;
 		SrcRect9.w = GuiWidth;
 		SrcRect9.w = GuiHeight;
 		SrcRect9.x = GuiXpos;
@@ -102,6 +111,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	}
 	else if (m_GuiTokenNumber == 10)
 	{
+		Gui10Title = Gui10Title;
 		SrcRect10.w = GuiWidth;
 		SrcRect10.w = GuiHeight;
 		SrcRect10.x = GuiXpos;
@@ -126,6 +136,7 @@ void Gui::DelGui(int GuiTokenNumber)
 
 	if (m_GuiTokenNumber == 1)
 	{
+		Gui1Title = "";
 		SrcRect1.w = 0;
 		SrcRect1.w = 0;
 		SrcRect1.x = 0;
@@ -133,6 +144,7 @@ void Gui::DelGui(int GuiTokenNumber)
 	}
 	else if (m_GuiTokenNumber == 2)
 	{
+		Gui2Title = "";
 		SrcRect2.w = 0;
 		SrcRect2.w = 0;
 		SrcRect2.x = 0;
@@ -140,6 +152,7 @@ void Gui::DelGui(int GuiTokenNumber)
 	}
 	else if (m_GuiTokenNumber == 3)
 	{
+		Gui3Title = "";
 		SrcRect3.w = 0;
 		SrcRect3.w = 0;
 		SrcRect3.x = 0;
@@ -147,6 +160,7 @@ void Gui::DelGui(int GuiTokenNumber)
 	}
 	else if (m_GuiTokenNumber == 4)
 	{
+		Gui4Title = "";
 		SrcRect4.w = 0;
 		SrcRect4.w = 0;
 		SrcRect4.x = 0;
@@ -154,6 +168,7 @@ void Gui::DelGui(int GuiTokenNumber)
 	}
 	else if (m_GuiTokenNumber == 5)
 	{
+		Gui5Title = "";
 		SrcRect5.w = 0;
 		SrcRect5.w = 0;
 		SrcRect5.x = 0;
@@ -161,6 +176,7 @@ void Gui::DelGui(int GuiTokenNumber)
 	}
 	else if (m_GuiTokenNumber == 6)
 	{
+		Gui6Title = "";
 		SrcRect6.w = 0;
 		SrcRect6.w = 0;
 		SrcRect6.x = 0;
@@ -168,6 +184,7 @@ void Gui::DelGui(int GuiTokenNumber)
 	}
 	else if (m_GuiTokenNumber == 7)
 	{
+		Gui7Title = "";
 		SrcRect7.w = 0;
 		SrcRect7.w = 0;
 		SrcRect7.x = 0;
@@ -175,6 +192,7 @@ void Gui::DelGui(int GuiTokenNumber)
 	}
 	else if (m_GuiTokenNumber == 8)
 	{
+		Gui8Title = "";
 		SrcRect8.w = 0;
 		SrcRect8.w = 0;
 		SrcRect8.x = 0;
@@ -182,6 +200,7 @@ void Gui::DelGui(int GuiTokenNumber)
 	}
 	else if (m_GuiTokenNumber == 9)
 	{
+		Gui9Title = "";
 		SrcRect9.w = 0;
 		SrcRect9.w = 0;
 		SrcRect9.x = 0;
@@ -189,6 +208,7 @@ void Gui::DelGui(int GuiTokenNumber)
 	}
 	else if (m_GuiTokenNumber == 10)
 	{
+		Gui10Title = "";
 		SrcRect10.w = 0;
 		SrcRect10.w = 0;
 		SrcRect10.x = 0;
@@ -198,12 +218,15 @@ void Gui::DelGui(int GuiTokenNumber)
 	{
 		std::cout << "Error: Gui Number Exceeded Or Another Error In The Program Please Check" << std::endl;
 
-		//If Nothing Is Deleted Then Change The m_GuiTokenNumber With ++ Becuase It Was Decremented In The Biggening Of The Function();
+		//If Nothing Is Del Then Change The m_GuiTokenNumber With ++ Becuase It Was Decremented In The Beggining Of The Function();
 		m_GuiTokenNumber++;
 	}
 }
 
 void Gui::Update()
 {
+	for (int i = 1; i <= m_GuiTokenNumber; i++)
+	{
 
+	}
 }

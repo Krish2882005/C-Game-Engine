@@ -15,6 +15,17 @@ class Gui
 		int MouseY = 0;
 		int m_GuiTokenNumber = 0;
 
+		std::string Gui1Title = "";
+		std::string Gui2Title = "";
+		std::string Gui3Title = "";
+		std::string Gui4Title = "";
+		std::string Gui5Title = "";
+		std::string Gui6Title = "";
+		std::string Gui7Title = "";
+		std::string Gui8Title = "";
+		std::string Gui9Title = "";
+		std::string Gui10Title = "";
+
 		SDL_Rect SrcRect1;
 		SDL_Rect SrcRect2;
 		SDL_Rect SrcRect3;
