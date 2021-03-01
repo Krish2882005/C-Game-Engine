@@ -88,6 +88,7 @@ void Init::Draw()
 	SDL_RenderClear(Renderer);
 	//map.Draw();
 	//player.Draw();
+	gui.Draw();
 	SDL_RenderPresent(Renderer);
 }
 
