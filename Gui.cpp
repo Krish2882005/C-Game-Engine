@@ -4,41 +4,41 @@
 
 void Gui::InitGui()
 {
-	GuiTitle[0] = Gui0Title;
-	GuiTitle[1] = Gui1Title;
-	GuiTitle[2] = Gui2Title;
-	GuiTitle[3] = Gui3Title;
-	GuiTitle[4] = Gui4Title;
-	GuiTitle[5] = Gui5Title;
-	GuiTitle[6] = Gui6Title;
-	GuiTitle[7] = Gui7Title;
-	GuiTitle[8] = Gui8Title;
-	GuiTitle[9] = Gui9Title;
-	GuiTitle[10] = Gui10Title;
+	GuiTitle.push_back(Gui0Title);
+	GuiTitle.push_back(Gui1Title);
+	GuiTitle.push_back(Gui2Title);
+	GuiTitle.push_back(Gui3Title);
+	GuiTitle.push_back(Gui4Title);
+	GuiTitle.push_back(Gui5Title);
+	GuiTitle.push_back(Gui6Title);
+	GuiTitle.push_back(Gui7Title);
+	GuiTitle.push_back(Gui8Title);
+	GuiTitle.push_back(Gui9Title);
+	GuiTitle.push_back(Gui10Title);
 
-	GuiCreated[0] = Gui0Created;
-	GuiCreated[1] = Gui1Created;
-	GuiCreated[2] = Gui2Created;
-	GuiCreated[3] = Gui3Created;
-	GuiCreated[4] = Gui4Created;
-	GuiCreated[5] = Gui5Created;
-	GuiCreated[6] = Gui6Created;
-	GuiCreated[7] = Gui7Created;
-	GuiCreated[8] = Gui8Created;
-	GuiCreated[9] = Gui9Created;
-	GuiCreated[10] = Gui10Created;
+	GuiCreated.push_back(Gui0Created);
+	GuiCreated.push_back(Gui1Created);
+	GuiCreated.push_back(Gui2Created);
+	GuiCreated.push_back(Gui3Created);
+	GuiCreated.push_back(Gui4Created);
+	GuiCreated.push_back(Gui5Created);
+	GuiCreated.push_back(Gui6Created);
+	GuiCreated.push_back(Gui7Created);
+	GuiCreated.push_back(Gui8Created);
+	GuiCreated.push_back(Gui9Created);
+	GuiCreated.push_back(Gui10Created);
 
-	Rects[0] = SrcRect0;
-	Rects[1] = SrcRect1;
-	Rects[2] = SrcRect2;
-	Rects[3] = SrcRect3;
-	Rects[4] = SrcRect4;
-	Rects[5] = SrcRect5;
-	Rects[6] = SrcRect6;
-	Rects[7] = SrcRect7;
-	Rects[8] = SrcRect8;
-	Rects[9] = SrcRect9;
-	Rects[10] = SrcRect10;
+	Rects.push_back(SrcRect0);
+	Rects.push_back(SrcRect1);
+	Rects.push_back(SrcRect2);
+	Rects.push_back(SrcRect3);
+	Rects.push_back(SrcRect4);
+	Rects.push_back(SrcRect5);
+	Rects.push_back(SrcRect6);
+	Rects.push_back(SrcRect7);
+	Rects.push_back(SrcRect8);
+	Rects.push_back(SrcRect9);
+	Rects.push_back(SrcRect10);
 }
 
 std::array<int, 2> Gui::InputHandling()

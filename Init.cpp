@@ -61,6 +61,8 @@ void Init::Load()
 {
 	//player.Load();
 	//map.Load();
+	gui.InitGui();
+	gui.CreateGuiMenu("Menu", true, 100, 100, 0, 0, "TestGui");
 }
 
 void Init::Events()
