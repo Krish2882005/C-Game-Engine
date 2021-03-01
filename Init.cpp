@@ -81,6 +81,7 @@ void Init::Update()
 {
 	gui.InputHandling();
 	//player.Update();
+	gui.Update();
 }
 
 void Init::Draw()
