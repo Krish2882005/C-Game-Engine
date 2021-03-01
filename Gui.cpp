@@ -46,12 +46,13 @@ std::array<int, 2> Gui::InputHandling()
 	}
 }
 
-int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle)
+int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string Gui_Title)
 {
 	m_GuiTokenNumber++;
 
 	//	The First m_GuiTokenNumber Is 1 And Not 0
 
+	GuiTitle[m_GuiTokenNumber] = Gui_Title;
 	Rects[m_GuiTokenNumber].w = GuiWidth;
 	Rects[m_GuiTokenNumber].h = GuiHeight;
 	Rects[m_GuiTokenNumber].x = GuiXpos;
@@ -154,93 +155,7 @@ void Gui::DelGui(int GuiTokenNumber)
 
 	m_GuiTokenNumber--;
 
-	if (m_GuiTokenNumber == 1)
-	{
-		Gui1Title = "";
-		SrcRect1.w = 0;
-		SrcRect1.w = 0;
-		SrcRect1.x = 0;
-		SrcRect1.y = 0;
-	}
-	else if (m_GuiTokenNumber == 2)
-	{
-		Gui2Title = "";
-		SrcRect2.w = 0;
-		SrcRect2.w = 0;
-		SrcRect2.x = 0;
-		SrcRect2.y = 0;
-	}
-	else if (m_GuiTokenNumber == 3)
-	{
-		Gui3Title = "";
-		SrcRect3.w = 0;
-		SrcRect3.w = 0;
-		SrcRect3.x = 0;
-		SrcRect3.y = 0;
-	}
-	else if (m_GuiTokenNumber == 4)
-	{
-		Gui4Title = "";
-		SrcRect4.w = 0;
-		SrcRect4.w = 0;
-		SrcRect4.x = 0;
-		SrcRect4.y = 0;
-	}
-	else if (m_GuiTokenNumber == 5)
-	{
-		Gui5Title = "";
-		SrcRect5.w = 0;
-		SrcRect5.w = 0;
-		SrcRect5.x = 0;
-		SrcRect5.y = 0;
-	}
-	else if (m_GuiTokenNumber == 6)
-	{
-		Gui6Title = "";
-		SrcRect6.w = 0;
-		SrcRect6.w = 0;
-		SrcRect6.x = 0;
-		SrcRect6.y = 0;
-	}
-	else if (m_GuiTokenNumber == 7)
-	{
-		Gui7Title = "";
-		SrcRect7.w = 0;
-		SrcRect7.w = 0;
-		SrcRect7.x = 0;
-		SrcRect7.y = 0;
-	}
-	else if (m_GuiTokenNumber == 8)
-	{
-		Gui8Title = "";
-		SrcRect8.w = 0;
-		SrcRect8.w = 0;
-		SrcRect8.x = 0;
-		SrcRect8.y = 0;
-	}
-	else if (m_GuiTokenNumber == 9)
-	{
-		Gui9Title = "";
-		SrcRect9.w = 0;
-		SrcRect9.w = 0;
-		SrcRect9.x = 0;
-		SrcRect9.y = 0;
-	}
-	else if (m_GuiTokenNumber == 10)
-	{
-		Gui10Title = "";
-		SrcRect10.w = 0;
-		SrcRect10.w = 0;
-		SrcRect10.x = 0;
-		SrcRect10.y = 0;
-	}
-	else
-	{
-		std::cout << "Error: Gui Number Exceeded Or Another Error In The Program Please Check" << std::endl;
-
-		//If Nothing Is Del Then Change The m_GuiTokenNumber With ++ Becuase It Was Decremented In The Beggining Of The Function();
-		m_GuiTokenNumber++;
-	}
+	GuiTitle[m_GuiTokenNumber] = "";
 }
 
 void Gui::Update()

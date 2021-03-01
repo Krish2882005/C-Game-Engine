@@ -19,6 +19,7 @@ class Gui
 		int m_GuiTokenNumber = 0;
 
 		std::vector<SDL_Rect> Rects;
+		std::vector<std::string> GuiTitle;
 
 		std::string Gui1Title = "";
 		std::string Gui2Title = "";
