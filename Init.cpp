@@ -75,11 +75,12 @@ void Init::Events()
 	}
 
 	//player.Events();
+
+	gui.InputHandling();
 }
 
 void Init::Update()
 {
-	gui.InputHandling();
 	//player.Update();
 	gui.Update();
 }
