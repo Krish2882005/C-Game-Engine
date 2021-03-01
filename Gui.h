@@ -7,12 +7,13 @@
 class Gui
 {
 	public:
-		void Init();
+		void InitGui();
 		std::array<int, 2> InputHandling();
 		int CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
 		void CreateGuiOptions(int GuiTokenNumber);
 		void DelGui(int GuiTokenNumber);
 		void Update();
+		void Draw();
 	private:
 		int MouseX = 0;
 		int MouseY = 0;
@@ -20,7 +21,7 @@ class Gui
 
 		std::vector<SDL_Rect> Rects;
 		std::vector<std::string> GuiTitle;
-		std::vector<std::string> GuiCreated;
+		std::vector<bool> GuiCreated;
 
 		std::string Gui0Title = "";
 		std::string Gui1Title = "";
