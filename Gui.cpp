@@ -2,6 +2,21 @@
 #include <iostream>
 #include "Init.h"
 
+void Gui::Init()
+{
+	Rects[0] = SrcRect0;
+	Rects[1] = SrcRect1;
+	Rects[2] = SrcRect2;
+	Rects[3] = SrcRect3;
+	Rects[4] = SrcRect4;
+	Rects[5] = SrcRect5;
+	Rects[6] = SrcRect6;
+	Rects[7] = SrcRect7;
+	Rects[8] = SrcRect8;
+	Rects[9] = SrcRect9;
+	Rects[10] = SrcRect10;
+}
+
 std::array<int, 2> Gui::InputHandling()
 {
 	switch (Init::Event.type)
@@ -37,7 +52,12 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 
 	//	The First m_GuiTokenNumber Is 1 And Not 0
 
-	if (m_GuiTokenNumber == 1)
+	Rects[m_GuiTokenNumber].w = GuiWidth;
+	Rects[m_GuiTokenNumber].h = GuiHeight;
+	Rects[m_GuiTokenNumber].x = GuiXpos;
+	Rects[m_GuiTokenNumber].y = GuiYpos;
+
+	/*if (m_GuiTokenNumber == 1)
 	{
 		Gui1Title = GuiTitle;
 		SrcRect1.w = GuiWidth;
@@ -120,7 +140,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	else
 	{
 		std::cout << "Error: Gui Number Exceeded" << std::endl;
-	}
+	}*/
 	return m_GuiTokenNumber;
 }
 

@@ -1,11 +1,13 @@
 #pragma once
 #include <array>
+#include <vector>
 #include <string>
 #include <SDL.h>
 
 class Gui
 {
 	public:
+		void Init();
 		std::array<int, 2> InputHandling();
 		int CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
 		void CreateGuiOptions(int GuiTokenNumber);
@@ -15,6 +17,8 @@ class Gui
 		int MouseX = 0;
 		int MouseY = 0;
 		int m_GuiTokenNumber = 0;
+
+		std::vector<SDL_Rect> Rects;
 
 		std::string Gui1Title = "";
 		std::string Gui2Title = "";
@@ -27,6 +31,7 @@ class Gui
 		std::string Gui9Title = "";
 		std::string Gui10Title = "";
 
+		SDL_Rect SrcRect0;
 		SDL_Rect SrcRect1;
 		SDL_Rect SrcRect2;
 		SDL_Rect SrcRect3;
