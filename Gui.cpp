@@ -72,16 +72,14 @@ std::array<int, 2> Gui::InputHandling()
 
 int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string Gui_Title)
 {
-	m_GuiTokenNumber++;
-
-	//	The First m_GuiTokenNumber Is 1 And Not 0
-
 	GuiTitle[m_GuiTokenNumber] = Gui_Title;
 	GuiCreated[m_GuiTokenNumber] = true;
 	Rects[m_GuiTokenNumber].w = GuiWidth;
 	Rects[m_GuiTokenNumber].h = GuiHeight;
 	Rects[m_GuiTokenNumber].x = GuiXpos;
 	Rects[m_GuiTokenNumber].y = GuiYpos;
+
+	m_GuiTokenNumber++;
 
 	return m_GuiTokenNumber;
 }
@@ -110,7 +108,7 @@ void Gui::DelGui(int GuiTokenNumber)
 
 void Gui::Update()
 {
-	for (int i = 1; i <= m_GuiTokenNumber; i++)
+	for (int i = 0; i <= m_GuiTokenNumber; i++)
 	{
 		if (GuiCreated[i])
 		{
@@ -121,7 +119,7 @@ void Gui::Update()
 
 void Gui::Draw()
 {
-	for (int i = 1; i <= m_GuiTokenNumber; i++)
+	for (int i = 0; i < m_GuiTokenNumber; i++)
 	{
 		if (GuiCreated[i])
 		{
