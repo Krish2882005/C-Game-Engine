@@ -20,7 +20,9 @@ class Gui
 
 		std::vector<SDL_Rect> Rects;
 		std::vector<std::string> GuiTitle;
+		std::vector<std::string> GuiCreated;
 
+		std::string Gui0Title = "";
 		std::string Gui1Title = "";
 		std::string Gui2Title = "";
 		std::string Gui3Title = "";
@@ -31,6 +33,18 @@ class Gui
 		std::string Gui8Title = "";
 		std::string Gui9Title = "";
 		std::string Gui10Title = "";
+
+		bool Gui0Created = false;
+		bool Gui1Created = false;
+		bool Gui2Created = false;
+		bool Gui3Created = false;
+		bool Gui4Created = false;
+		bool Gui5Created = false;
+		bool Gui6Created = false;
+		bool Gui7Created = false;
+		bool Gui8Created = false;
+		bool Gui9Created = false;
+		bool Gui10Created = false;
 
 		SDL_Rect SrcRect0;
 		SDL_Rect SrcRect1;

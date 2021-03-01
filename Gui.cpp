@@ -4,6 +4,30 @@
 
 void Gui::Init()
 {
+	GuiTitle[0] = Gui0Title;
+	GuiTitle[1] = Gui1Title;
+	GuiTitle[2] = Gui2Title;
+	GuiTitle[3] = Gui3Title;
+	GuiTitle[4] = Gui4Title;
+	GuiTitle[5] = Gui5Title;
+	GuiTitle[6] = Gui6Title;
+	GuiTitle[7] = Gui7Title;
+	GuiTitle[8] = Gui8Title;
+	GuiTitle[9] = Gui9Title;
+	GuiTitle[10] = Gui10Title;
+
+	GuiCreated[0] = Gui0Created;
+	GuiCreated[1] = Gui1Created;
+	GuiCreated[2] = Gui2Created;
+	GuiCreated[3] = Gui3Created;
+	GuiCreated[4] = Gui4Created;
+	GuiCreated[5] = Gui5Created;
+	GuiCreated[6] = Gui6Created;
+	GuiCreated[7] = Gui7Created;
+	GuiCreated[8] = Gui8Created;
+	GuiCreated[9] = Gui9Created;
+	GuiCreated[10] = Gui10Created;
+
 	Rects[0] = SrcRect0;
 	Rects[1] = SrcRect1;
 	Rects[2] = SrcRect2;
@@ -162,6 +186,6 @@ void Gui::Update()
 {
 	for (int i = 1; i <= m_GuiTokenNumber; i++)
 	{
-
+		
 	}
 }
