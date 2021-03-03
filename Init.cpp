@@ -61,11 +61,9 @@ void Init::Load()
 {
 	//player.Load();
 	//map.Load();
-<<<<<<< HEAD
-=======
 	gui.InitGui();
-	gui.CreateGuiMenu("Menu", true, 100, 100, 0, 0, "TestGui");
->>>>>>> d9c465160a0f43c605aa49c8ccb142c92d9f896c
+	TestGuiMenu = gui.CreateGuiMenu("Menu", true, 200, 200, 100, 100, "TestGui");
+	gui.CreateGuiOptions(TestGuiMenu, "Slider", "TestSlider");
 }
 
 void Init::Events()
@@ -78,22 +76,14 @@ void Init::Events()
 	}
 
 	//player.Events();
-<<<<<<< HEAD
-=======
 
 	gui.InputHandling();
->>>>>>> d9c465160a0f43c605aa49c8ccb142c92d9f896c
 }
 
 void Init::Update()
 {
-<<<<<<< HEAD
-	gui.InputHandling();
-	//player.Update();
-=======
 	//player.Update();
 	gui.Update();
->>>>>>> d9c465160a0f43c605aa49c8ccb142c92d9f896c
 }
 
 void Init::Draw()
@@ -101,10 +91,7 @@ void Init::Draw()
 	SDL_RenderClear(Renderer);
 	//map.Draw();
 	//player.Draw();
-<<<<<<< HEAD
-=======
 	gui.Draw();
->>>>>>> d9c465160a0f43c605aa49c8ccb142c92d9f896c
 	SDL_RenderPresent(Renderer);
 }
 
