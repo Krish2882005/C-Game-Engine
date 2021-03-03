@@ -11,7 +11,7 @@ class Gui
 		void InitGui();
 		std::array<int, 2> InputHandling();
 		int CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
-		void CreateGuiOptions(int GuiTokenNumber);
+		void CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::string TitleOfOption);
 		void DelGui(int GuiTokenNumber);
 		void Update();
 		void Draw();
@@ -23,6 +23,10 @@ class Gui
 		std::vector<SDL_Rect> Rects;
 		std::vector<std::string> GuiTitle;
 		std::vector<bool> GuiCreated;
+		std::vector<SDL_Rect> SliderSrcRect;
+		std::vector<bool> SliderCreated;
+
+		int StoredGuiNumber = 0;
 
 		std::string Gui0Title = "";
 		std::string Gui1Title = "";
@@ -59,4 +63,28 @@ class Gui
 		SDL_Rect SrcRect8;
 		SDL_Rect SrcRect9;
 		SDL_Rect SrcRect10;
+
+		SDL_Rect SliderSrcRect0;
+		SDL_Rect SliderSrcRect1;
+		SDL_Rect SliderSrcRect2;
+		SDL_Rect SliderSrcRect3;
+		SDL_Rect SliderSrcRect4;
+		SDL_Rect SliderSrcRect5;
+		SDL_Rect SliderSrcRect6;
+		SDL_Rect SliderSrcRect7;
+		SDL_Rect SliderSrcRect8;
+		SDL_Rect SliderSrcRect9;
+		SDL_Rect SliderSrcRect10;
+
+		bool Slider0Created = false;
+		bool Slider1Created = false;
+		bool Slider2Created = false;
+		bool Slider3Created = false;
+		bool Slider4Created = false;
+		bool Slider5Created = false;
+		bool Slider6Created = false;
+		bool Slider7Created = false;
+		bool Slider8Created = false;
+		bool Slider9Created = false;
+		bool Slider10Created = false;
 };

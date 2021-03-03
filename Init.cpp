@@ -62,7 +62,8 @@ void Init::Load()
 	//player.Load();
 	//map.Load();
 	gui.InitGui();
-	gui.CreateGuiMenu("Menu", true, 100, 100, 0, 0, "TestGui");
+	TestGuiMenu = gui.CreateGuiMenu("Menu", true, 200, 200, 100, 100, "TestGui");
+	gui.CreateGuiOptions(TestGuiMenu, "Slider", "TestSlider");
 }
 
 void Init::Events()

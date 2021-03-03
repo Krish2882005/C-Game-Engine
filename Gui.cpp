@@ -39,6 +39,30 @@ void Gui::InitGui()
 	Rects.push_back(SrcRect8);
 	Rects.push_back(SrcRect9);
 	Rects.push_back(SrcRect10);
+
+	SliderSrcRect.push_back(SliderSrcRect0);
+	SliderSrcRect.push_back(SliderSrcRect1);
+	SliderSrcRect.push_back(SliderSrcRect2);
+	SliderSrcRect.push_back(SliderSrcRect3);
+	SliderSrcRect.push_back(SliderSrcRect4);
+	SliderSrcRect.push_back(SliderSrcRect5);
+	SliderSrcRect.push_back(SliderSrcRect6);
+	SliderSrcRect.push_back(SliderSrcRect7);
+	SliderSrcRect.push_back(SliderSrcRect8);
+	SliderSrcRect.push_back(SliderSrcRect9);
+	SliderSrcRect.push_back(SliderSrcRect10);
+
+	SliderCreated.push_back(Slider0Created);
+	SliderCreated.push_back(Slider1Created);
+	SliderCreated.push_back(Slider2Created);
+	SliderCreated.push_back(Slider3Created);
+	SliderCreated.push_back(Slider4Created);
+	SliderCreated.push_back(Slider5Created);
+	SliderCreated.push_back(Slider6Created);
+	SliderCreated.push_back(Slider7Created);
+	SliderCreated.push_back(Slider8Created);
+	SliderCreated.push_back(Slider9Created);
+	SliderCreated.push_back(Slider10Created);
 }
 
 std::array<int, 2> Gui::InputHandling()
@@ -79,14 +103,37 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	Rects[m_GuiTokenNumber].x = GuiXpos;
 	Rects[m_GuiTokenNumber].y = GuiYpos;
 
+	StoredGuiNumber = m_GuiTokenNumber;
+
 	m_GuiTokenNumber++;
 
-	return m_GuiTokenNumber;
+	return StoredGuiNumber;
 }
 
-void Gui::CreateGuiOptions(int GuiTokenNumber)
+void Gui::CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::string TitleOfOption)
 {
-	
+	if (GuiTitle[GuiTokenNumber] != "" && Rects[GuiTokenNumber].w != 0 && Rects[GuiTokenNumber].h != 0)
+	{
+		if (WhatToCreate == "Slider")
+		{
+			SliderSrcRect[GuiTokenNumber].x = Rects[GuiTokenNumber].x + 20;
+			SliderSrcRect[GuiTokenNumber].y = Rects[GuiTokenNumber].y + 20;
+			SliderSrcRect[GuiTokenNumber].w = 50;
+			SliderSrcRect[GuiTokenNumber].h = 50;
+			
+			SliderCreated[GuiTokenNumber] = true;
+
+			//Overlay
+			//RGB   137, 140, 146
+
+			//Slider
+			//RGB	0, 146, 167
+		}
+	}
+	else
+	{
+		std::cout << "Error, Can't Find The Specified Gui Menu" << std::endl;
+	}
 }
 
 void Gui::DelGui(int GuiTokenNumber)
@@ -123,10 +170,22 @@ void Gui::Draw()
 	{
 		if (GuiCreated[i])
 		{
+			//Menu
 			SDL_SetRenderDrawColor(Init::Renderer, 255, 255, 255, 255);
 
 			SDL_RenderDrawRect(Init::Renderer, &Rects[i]);
 			SDL_RenderFillRect(Init::Renderer, &Rects[i]);
+
+			SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
+		}
+
+		if (SliderCreated[i])
+		{
+			//Options
+			SDL_SetRenderDrawColor(Init::Renderer, 137, 140, 146, 255);
+
+			SDL_RenderDrawRect(Init::Renderer, &SliderSrcRect[i]);
+			SDL_RenderFillRect(Init::Renderer, &SliderSrcRect[i]);
 
 			SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
 		}

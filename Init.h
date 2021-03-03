@@ -17,4 +17,5 @@ class Init
 	private:
 		bool m_IsRunning = false;
 		SDL_Window* Window = nullptr;
+		int TestGuiMenu = 0;
 };
