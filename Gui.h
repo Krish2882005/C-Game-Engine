@@ -9,7 +9,6 @@ class Gui
 {
 public:
 	void InitGui();
-	void InitGui();
 	std::array<int, 2> InputHandling();
 	int CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
 	void CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::string TitleOfOption);
