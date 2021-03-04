@@ -94,6 +94,14 @@ std::array<int, 2> Gui::InputHandling()
 	}
 }
 
+void Gui::SelectionController(int Width, int Height, int xPos, int yPos)
+{
+	if (xPos < MouseX && xPos + Width > MouseX && yPos < MouseY && yPos + Height > MouseY)
+	{
+		std::cout << "Hi" << std::endl;
+	}
+}
+
 int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string Gui_Title)
 {
 	GuiTitle[m_GuiTokenNumber] = Gui_Title;
@@ -157,9 +165,9 @@ void Gui::Update()
 {
 	for (int i = 0; i <= m_GuiTokenNumber; i++)
 	{
-		if (GuiCreated[i])
+		if (SliderCreated[i])
 		{
-
+			SelectionController(SliderSrcRect[i].w, SliderSrcRect[i].h, SliderSrcRect[i].x, SliderSrcRect[i].y);
 		}
 	}
 }
