@@ -1,3 +1,6 @@
+// This is a personal academic project. Dear PVS-Studio, please check it.
+// PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
+
 #include "Gui.h"
 #include <iostream>
 #include "Init.h"
@@ -65,7 +68,7 @@ void Gui::InitGui()
 	SliderCreated.push_back(Slider10Created);
 }
 
-std::array<int, 2> Gui::InputHandling()
+int Gui::InputHandling()
 {
 	switch (Init::Event.type)
 	{
@@ -73,32 +76,42 @@ std::array<int, 2> Gui::InputHandling()
 		{
 			MouseX = Init::Event.motion.x;
 			MouseY = Init::Event.motion.y;
-			return { 0, 0 };
+			return 0;
 			break;
 		}
 		case SDL_MOUSEBUTTONDOWN:
 		{
 			if (Init::Event.button.button == 1)
 			{
-				MouseX = Init::Event.motion.x;
-				MouseY = Init::Event.motion.y;
-				return { MouseX , MouseY };
+				return 2;
 			}
 			break;
 		}
+		case SDL_MOUSEBUTTONUP:
+		{
+			if (Init::Event.button.button == 1)
+			{
+				return 1;
+			}
+		break;
+		}
 		default:
 		{
-			return { 0, 0 };
+			return 0;
 			break;
 		}
 	}
 }
 
-void Gui::SelectionController(int Width, int Height, int xPos, int yPos)
+bool Gui::SelectionController(int Width, int Height, int xPos, int yPos)
 {
 	if (xPos < MouseX && xPos + Width > MouseX && yPos < MouseY && yPos + Height > MouseY)
 	{
-		std::cout << "Hi" << std::endl;
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
@@ -167,7 +180,25 @@ void Gui::Update()
 	{
 		if (SliderCreated[i])
 		{
-			SelectionController(SliderSrcRect[i].w, SliderSrcRect[i].h, SliderSrcRect[i].x, SliderSrcRect[i].y);
+			StoreSelection = SelectionController(SliderSrcRect[i].w, SliderSrcRect[i].h, SliderSrcRect[i].x, SliderSrcRect[i].y);
+
+			if (StoreSelection)
+			{
+				if (InputHandling() == 2)
+				{
+					IsMouseD = true;
+				}
+				else if(InputHandling() == 1)
+				{
+					IsMouseD = false;
+				}
+			}
+
+			if (IsMouseD)
+			{
+				SliderSrcRect[i].x = MouseX - 5;
+				SliderSrcRect[i].y = MouseY - 10;
+			}
 		}
 	}
 }

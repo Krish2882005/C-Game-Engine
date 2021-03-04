@@ -12,8 +12,8 @@ class Gui
 {
 public:
 	void InitGui();
-	std::array<int, 2> InputHandling();
-	void SelectionController(int Width, int Height, int xPos, int yPos);
+	int InputHandling();
+	bool SelectionController(int Width, int Height, int xPos, int yPos);
 	int CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
 	void CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::string TitleOfOption);
 	void DelGui(int GuiTokenNumber);
@@ -91,4 +91,8 @@ private:
 	bool Slider10Created = false;
 
 	int StoredGuiNumber = 0;
+
+	bool StoreSelection = false;
+
+	bool IsMouseD = false;
 };
