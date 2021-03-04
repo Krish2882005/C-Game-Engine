@@ -69,28 +69,28 @@ std::array<int, 2> Gui::InputHandling()
 {
 	switch (Init::Event.type)
 	{
-		case SDL_MOUSEMOTION:
+	case SDL_MOUSEMOTION:
+	{
+		MouseX = Init::Event.motion.x;
+		MouseY = Init::Event.motion.y;
+		return { 0, 0 };
+		break;
+	}
+	case SDL_MOUSEBUTTONDOWN:
+	{
+		if (Init::Event.button.button == 1)
 		{
 			MouseX = Init::Event.motion.x;
 			MouseY = Init::Event.motion.y;
-			return { 0, 0 };
-			break;
+			return { MouseX , MouseY };
 		}
-		case SDL_MOUSEBUTTONDOWN:
-		{
-			if (Init::Event.button.button == 1)
-			{
-				MouseX = Init::Event.motion.x;
-				MouseY = Init::Event.motion.y;
-				return { MouseX , MouseY };
-			}
-			break;
-		}
-		default:
-		{
-			return { 0, 0 };
-			break;
-		}
+		break;
+	}
+	default:
+	{
+		return { 0, 0 };
+		break;
+	}
 	}
 }
 
@@ -120,7 +120,7 @@ void Gui::CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::st
 			SliderSrcRect[GuiTokenNumber].y = Rects[GuiTokenNumber].y + 20;
 			SliderSrcRect[GuiTokenNumber].w = 50;
 			SliderSrcRect[GuiTokenNumber].h = 50;
-			
+
 			SliderCreated[GuiTokenNumber] = true;
 
 			//Overlay
@@ -159,7 +159,7 @@ void Gui::Update()
 	{
 		if (GuiCreated[i])
 		{
-			
+
 		}
 	}
 }
