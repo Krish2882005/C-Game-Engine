@@ -21,4 +21,5 @@ class Init
 		bool m_IsRunning = false;
 		SDL_Window* Window = nullptr;
 		int TestGuiMenu = 0;
+		int TestGuiMenu1 = 0;
 };

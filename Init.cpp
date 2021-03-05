@@ -67,6 +67,8 @@ void Init::Load()
 	gui.InitGui();
 	TestGuiMenu = gui.CreateGuiMenu("Menu", true, 200, 200, 100, 100, "TestGui");
 	gui.CreateGuiOptions(TestGuiMenu, "Slider", "TestSlider");
+	TestGuiMenu1 = gui.CreateGuiMenu("Menu", true, 200, 200, 200, 200, "TestGui");
+	gui.CreateGuiOptions(TestGuiMenu1, "Slider", "TestSlider");
 }
 
 void Init::Events()
