@@ -35,6 +35,7 @@ private:
 	std::vector<int> SliderYPosition;
 	std::vector<int> SliderMaxXPositionInProgram;
 	std::vector<int> SliderMaxYPositionInProgram;
+	std::vector<int> SliderCount;
 
 	std::string Gui0Title = "";
 	std::string Gui1Title = "";
@@ -168,6 +169,18 @@ private:
 	int SliderMaxYPositionInProgram9 = 0;
 	int SliderMaxYPositionInProgram10 = 0;
 
+	int SliderCount0 = 0;
+	int SliderCount1 = 0;
+	int SliderCount2 = 0;
+	int SliderCount3 = 0;
+	int SliderCount4 = 0;
+	int SliderCount5 = 0;
+	int SliderCount6 = 0;
+	int SliderCount7 = 0;
+	int SliderCount8 = 0;
+	int SliderCount9 = 0;
+	int SliderCount10 = 0;
+
 	int StoredGuiNumber = 0;
 
 	bool StoreSelection = false;
@@ -178,4 +191,6 @@ private:
 
 	int OldMouseXPos = 0;
 	int OldMouseYPos = 0;
+
+	int MousePosForSliderCouting = 0;
 };
