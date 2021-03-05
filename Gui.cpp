@@ -291,14 +291,6 @@ void Gui::Update()
 					{
 						SliderAdjusterRect[WhichGuiMenuIsSelected].x = MouseX - 5;
 					}
-					else
-					{
-						//SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderMaxXPositionInProgram[WhichGuiMenuIsSelected];
-					}
-				}
-				else
-				{
-					//SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderXPosition[WhichGuiMenuIsSelected];
 				}
 			}
 
