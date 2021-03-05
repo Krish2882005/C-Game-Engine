@@ -138,6 +138,18 @@ void Gui::InitGui()
 	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram8);
 	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram9);
 	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram10);
+
+	SliderCount.push_back(SliderCount0);
+	SliderCount.push_back(SliderCount1);
+	SliderCount.push_back(SliderCount2);
+	SliderCount.push_back(SliderCount3);
+	SliderCount.push_back(SliderCount4);
+	SliderCount.push_back(SliderCount5);
+	SliderCount.push_back(SliderCount6);
+	SliderCount.push_back(SliderCount7);
+	SliderCount.push_back(SliderCount8);
+	SliderCount.push_back(SliderCount9);
+	SliderCount.push_back(SliderCount10);
 }
 
 int Gui::InputHandling()
@@ -280,6 +292,8 @@ void Gui::Update()
 				WhichGuiMenuIsSelected = i;
 				IsMouseD = false;
 			}
+
+			OldMouseXPos = SliderAdjusterRect[WhichGuiMenuIsSelected].x;
 
 			if (IsMouseD)
 			{
