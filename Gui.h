@@ -15,7 +15,7 @@ public:
 	int InputHandling();
 	bool SelectionController(int Width, int Height, int xPos, int yPos);
 	int CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
-	void CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::string TitleOfOption);
+	void CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue);
 	void DelGui(int GuiTokenNumber);
 	void Update();
 	void Draw();
@@ -36,6 +36,7 @@ private:
 	std::vector<int> SliderMaxXPositionInProgram;
 	std::vector<int> SliderMaxYPositionInProgram;
 	std::vector<int> SliderCount;
+	std::vector<int> SliderCountMaxValue;
 
 	std::string Gui0Title = "";
 	std::string Gui1Title = "";
@@ -180,6 +181,18 @@ private:
 	int SliderCount8 = 0;
 	int SliderCount9 = 0;
 	int SliderCount10 = 0;
+
+	int SliderCountMaxValue0 = 0;
+	int SliderCountMaxValue1 = 0;
+	int SliderCountMaxValue2 = 0;
+	int SliderCountMaxValue3 = 0;
+	int SliderCountMaxValue4 = 0;
+	int SliderCountMaxValue5 = 0;
+	int SliderCountMaxValue6 = 0;
+	int SliderCountMaxValue7 = 0;
+	int SliderCountMaxValue8 = 0;
+	int SliderCountMaxValue9 = 0;
+	int SliderCountMaxValue10 = 0;
 
 	int StoredGuiNumber = 0;
 

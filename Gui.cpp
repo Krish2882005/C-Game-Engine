@@ -150,6 +150,18 @@ void Gui::InitGui()
 	SliderCount.push_back(SliderCount8);
 	SliderCount.push_back(SliderCount9);
 	SliderCount.push_back(SliderCount10);
+
+	SliderCountMaxValue.push_back(SliderCountMaxValue0);
+	SliderCountMaxValue.push_back(SliderCountMaxValue1);
+	SliderCountMaxValue.push_back(SliderCountMaxValue2);
+	SliderCountMaxValue.push_back(SliderCountMaxValue3);
+	SliderCountMaxValue.push_back(SliderCountMaxValue4);
+	SliderCountMaxValue.push_back(SliderCountMaxValue5);
+	SliderCountMaxValue.push_back(SliderCountMaxValue6);
+	SliderCountMaxValue.push_back(SliderCountMaxValue7);
+	SliderCountMaxValue.push_back(SliderCountMaxValue8);
+	SliderCountMaxValue.push_back(SliderCountMaxValue9);
+	SliderCountMaxValue.push_back(SliderCountMaxValue10);
 }
 
 int Gui::InputHandling()
@@ -215,7 +227,7 @@ int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiH
 	return StoredGuiNumber;
 }
 
-void Gui::CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::string TitleOfOption)
+void Gui::CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue)
 {
 	if (GuiTitle[GuiTokenNumber] != "" && Rects[GuiTokenNumber].w != 0 && Rects[GuiTokenNumber].h != 0)
 	{
