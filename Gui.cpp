@@ -162,6 +162,18 @@ void Gui::InitGui()
 	SliderCountMaxValue.push_back(SliderCountMaxValue8);
 	SliderCountMaxValue.push_back(SliderCountMaxValue9);
 	SliderCountMaxValue.push_back(SliderCountMaxValue10);
+
+	SliderValue.push_back(SliderValue0);
+	SliderValue.push_back(SliderValue1);
+	SliderValue.push_back(SliderValue2);
+	SliderValue.push_back(SliderValue3);
+	SliderValue.push_back(SliderValue4);
+	SliderValue.push_back(SliderValue5);
+	SliderValue.push_back(SliderValue6);
+	SliderValue.push_back(SliderValue7);
+	SliderValue.push_back(SliderValue8);
+	SliderValue.push_back(SliderValue9);
+	SliderValue.push_back(SliderValue10);
 }
 
 int Gui::InputHandling()
@@ -231,7 +243,17 @@ void Gui::CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::st
 {
 	if (GuiTitle[GuiTokenNumber] != "" && Rects[GuiTokenNumber].w != 0 && Rects[GuiTokenNumber].h != 0)
 	{
-		if (WhatToCreate == "Slider")
+		if (WhatToCreate == "Transform Component")
+		{
+			SliderSrcRect[GuiTokenNumber].x = Rects[GuiTokenNumber].x + 50;
+			SliderSrcRect[GuiTokenNumber].y = Rects[GuiTokenNumber].y + 50;
+			SliderSrcRect[GuiTokenNumber].w = 50;
+			SliderSrcRect[GuiTokenNumber].h = 50;
+
+			SliderCreated[GuiTokenNumber] = true;
+		}
+
+		/*if (WhatToCreate == "Slider")
 		{
 			//Overlay
 			SliderSrcRect[GuiTokenNumber].x = Rects[GuiTokenNumber].x + 50;
@@ -252,12 +274,8 @@ void Gui::CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::st
 
 			SliderAdjusterCreated[GuiTokenNumber] = true;
 
-			//Overlay
-			//RGB   137, 140, 146
-
-			//Slider
-			//RGB	0, 146, 167
-		}
+			SliderCountMaxValue[WhichGuiMenuIsSelected] = SliderMaxValue;
+		}*/
 	}
 	else
 	{
@@ -284,9 +302,51 @@ void Gui::DelGui(int GuiTokenNumber)
 
 void Gui::Update()
 {
+	OldMouseXPos = MouseX;
+	OldMouseYPos = MouseY;
+
+	InputHandling();
+
 	for (int i = 0; i <= m_GuiTokenNumber; i++)
 	{
-		if (SliderAdjusterCreated[i])
+		if (SliderCreated[i])
+		{
+			StoreSelection = SelectionController(SliderSrcRect[i].w, SliderSrcRect[i].h, SliderSrcRect[i].x, SliderSrcRect[i].y);
+
+			if (StoreSelection)
+			{
+				if (InputHandling() == 2)
+				{
+					WhichGuiMenuIsSelected = i;
+					IsMouseD = true;
+				}
+			}
+
+			if(InputHandling() == 1)
+			{
+				WhichGuiMenuIsSelected = i;
+				IsMouseD = false;
+			}
+
+			if (IsMouseD)
+			{
+				if (MouseX != OldMouseXPos)
+				{
+					if (MouseX > OldMouseXPos)
+					{
+						SliderCounting++;
+					}
+					else if (MouseX < OldMouseXPos)
+					{
+						SliderCounting--;
+					}
+				}
+			}
+
+			std::cout << SliderCounting << std::endl;
+		}
+
+		/*if (SliderAdjusterCreated[i])
 		{
 			StoreSelection = SelectionController(SliderAdjusterRect[i].w, SliderAdjusterRect[i].h, SliderAdjusterRect[i].x, SliderAdjusterRect[i].y);
 
@@ -328,7 +388,7 @@ void Gui::Update()
 			{
 				SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderMaxXPositionInProgram[WhichGuiMenuIsSelected];
 			}
-		}
+		}*/
 	}
 }
 
@@ -361,7 +421,7 @@ void Gui::Draw()
 			SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
 		}
 	}
-
+	/*
 	for (int i = 0; i < m_GuiTokenNumber; i++)
 	{
 		if (SliderAdjusterCreated[i])
@@ -373,5 +433,5 @@ void Gui::Draw()
 
 			SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
 		}
-	}
+	}*/
 }
