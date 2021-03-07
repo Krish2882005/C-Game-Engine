@@ -6,6 +6,7 @@
 #include "Player.h"
 #include "Map.h"
 #include "Gui.h"
+#include "RenderText.h"
 
 constexpr int ScreenWidth = 1080;
 constexpr int ScreenHeight = 720;
@@ -27,12 +28,6 @@ void Init::Init_SDL2()
 		{
 			m_IsRunning = false;
 			std::cout << "SDL_image Cannot Init" << std::endl;
-			return;
-		}
-		else if(TTF_Init() != 0)
-		{
-			m_IsRunning = false;
-			std::cout << "Error: SDL_ttf Cannot Init" << std::endl;
 			return;
 		}
 
