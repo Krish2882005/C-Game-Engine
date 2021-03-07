@@ -29,6 +29,12 @@ void Init::Init_SDL2()
 			std::cout << "SDL_image Cannot Init" << std::endl;
 			return;
 		}
+		else if(TTF_Init() != 0)
+		{
+			m_IsRunning = false;
+			std::cout << "Error: SDL_ttf Cannot Init" << std::endl;
+			return;
+		}
 
 		Window = SDL_CreateWindow("Box2D Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, ScreenWidth, ScreenHeight, SDL_WINDOW_RESIZABLE);
 
@@ -106,6 +112,7 @@ void Init::Clean()
 {
 	//player.Clean();
 	//map.Clean();
+	TTF_Quit();
 	SDL_DestroyWindow(Window);
 	SDL_DestroyRenderer(Renderer);
 }
