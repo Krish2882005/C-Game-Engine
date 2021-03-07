@@ -13,6 +13,7 @@ constexpr int ScreenHeight = 720;
 //Player player;
 //Map map;
 Gui gui;
+Gui gui1;
 
 SDL_Renderer* Init::Renderer = nullptr;
 
@@ -65,8 +66,11 @@ void Init::Load()
 	//player.Load();
 	//map.Load();
 	gui.InitGui();
-	TestGuiMenu = gui.CreateGuiMenu("Menu", true, 200, 200, 100, 100, "TestGui");
-	gui.CreateGuiOptions(TestGuiMenu, "Transform Component", "Hello", 100);
+	gui.CreateGuiMenu("Menu", true, 200, 200, 100, 100, "TestGui");
+	gui.CreateGuiOptions("Transform Component", "Hello", 100);
+	gui1.InitGui();
+	gui1.CreateGuiMenu("Menu", true, 200, 200, 200, 200, "TestGui");
+	gui1.CreateGuiOptions("Transform Component", "Hello", 100);
 }
 
 void Init::Events()
@@ -85,6 +89,7 @@ void Init::Update()
 {
 	//player.Update();
 	gui.Update();
+	gui1.Update();
 }
 
 void Init::Draw()
@@ -93,6 +98,7 @@ void Init::Draw()
 	//map.Draw();
 	//player.Draw();
 	gui.Draw();
+	gui1.Draw();
 	SDL_RenderPresent(Renderer);
 }
 

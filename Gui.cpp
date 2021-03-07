@@ -7,173 +7,7 @@
 
 void Gui::InitGui()
 {
-	GuiTitle.push_back(Gui0Title);
-	GuiTitle.push_back(Gui1Title);
-	GuiTitle.push_back(Gui2Title);
-	GuiTitle.push_back(Gui3Title);
-	GuiTitle.push_back(Gui4Title);
-	GuiTitle.push_back(Gui5Title);
-	GuiTitle.push_back(Gui6Title);
-	GuiTitle.push_back(Gui7Title);
-	GuiTitle.push_back(Gui8Title);
-	GuiTitle.push_back(Gui9Title);
-	GuiTitle.push_back(Gui10Title);
-
-	GuiCreated.push_back(Gui0Created);
-	GuiCreated.push_back(Gui1Created);
-	GuiCreated.push_back(Gui2Created);
-	GuiCreated.push_back(Gui3Created);
-	GuiCreated.push_back(Gui4Created);
-	GuiCreated.push_back(Gui5Created);
-	GuiCreated.push_back(Gui6Created);
-	GuiCreated.push_back(Gui7Created);
-	GuiCreated.push_back(Gui8Created);
-	GuiCreated.push_back(Gui9Created);
-	GuiCreated.push_back(Gui10Created);
-
-	Rects.push_back(SrcRect0);
-	Rects.push_back(SrcRect1);
-	Rects.push_back(SrcRect2);
-	Rects.push_back(SrcRect3);
-	Rects.push_back(SrcRect4);
-	Rects.push_back(SrcRect5);
-	Rects.push_back(SrcRect6);
-	Rects.push_back(SrcRect7);
-	Rects.push_back(SrcRect8);
-	Rects.push_back(SrcRect9);
-	Rects.push_back(SrcRect10);
-
-	SliderSrcRect.push_back(SliderSrcRect0);
-	SliderSrcRect.push_back(SliderSrcRect1);
-	SliderSrcRect.push_back(SliderSrcRect2);
-	SliderSrcRect.push_back(SliderSrcRect3);
-	SliderSrcRect.push_back(SliderSrcRect4);
-	SliderSrcRect.push_back(SliderSrcRect5);
-	SliderSrcRect.push_back(SliderSrcRect6);
-	SliderSrcRect.push_back(SliderSrcRect7);
-	SliderSrcRect.push_back(SliderSrcRect8);
-	SliderSrcRect.push_back(SliderSrcRect9);
-	SliderSrcRect.push_back(SliderSrcRect10);
-
-	SliderCreated.push_back(Slider0Created);
-	SliderCreated.push_back(Slider1Created);
-	SliderCreated.push_back(Slider2Created);
-	SliderCreated.push_back(Slider3Created);
-	SliderCreated.push_back(Slider4Created);
-	SliderCreated.push_back(Slider5Created);
-	SliderCreated.push_back(Slider6Created);
-	SliderCreated.push_back(Slider7Created);
-	SliderCreated.push_back(Slider8Created);
-	SliderCreated.push_back(Slider9Created);
-	SliderCreated.push_back(Slider10Created);
-
-	SliderAdjusterRect.push_back(SliderAdjusterRect0);
-	SliderAdjusterRect.push_back(SliderAdjusterRect1);
-	SliderAdjusterRect.push_back(SliderAdjusterRect2);
-	SliderAdjusterRect.push_back(SliderAdjusterRect3);
-	SliderAdjusterRect.push_back(SliderAdjusterRect4);
-	SliderAdjusterRect.push_back(SliderAdjusterRect5);
-	SliderAdjusterRect.push_back(SliderAdjusterRect6);
-	SliderAdjusterRect.push_back(SliderAdjusterRect7);
-	SliderAdjusterRect.push_back(SliderAdjusterRect8);
-	SliderAdjusterRect.push_back(SliderAdjusterRect9);
-	SliderAdjusterRect.push_back(SliderAdjusterRect10);
-
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated0);
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated1);
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated2);
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated3);
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated4);
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated5);
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated6);
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated7);
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated8);
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated9);
-	SliderAdjusterCreated.push_back(SliderAdjusterCreated10);
-
-	SliderXPosition.push_back(SliderXPosition0);
-	SliderXPosition.push_back(SliderXPosition1);
-	SliderXPosition.push_back(SliderXPosition2);
-	SliderXPosition.push_back(SliderXPosition3);
-	SliderXPosition.push_back(SliderXPosition4);
-	SliderXPosition.push_back(SliderXPosition5);
-	SliderXPosition.push_back(SliderXPosition6);
-	SliderXPosition.push_back(SliderXPosition7);
-	SliderXPosition.push_back(SliderXPosition8);
-	SliderXPosition.push_back(SliderXPosition9);
-	SliderXPosition.push_back(SliderXPosition10);
-
-	SliderYPosition.push_back(SliderYPosition0);
-	SliderYPosition.push_back(SliderYPosition1);
-	SliderYPosition.push_back(SliderYPosition2);
-	SliderYPosition.push_back(SliderYPosition3);
-	SliderYPosition.push_back(SliderYPosition4);
-	SliderYPosition.push_back(SliderYPosition5);
-	SliderYPosition.push_back(SliderYPosition6);
-	SliderYPosition.push_back(SliderYPosition7);
-	SliderYPosition.push_back(SliderYPosition8);
-	SliderYPosition.push_back(SliderYPosition9);
-	SliderYPosition.push_back(SliderYPosition10);
-
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram0);
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram1);
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram2);
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram3);
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram4);
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram5);
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram6);
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram7);
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram8);
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram9);
-	SliderMaxXPositionInProgram.push_back(SliderMaxXPositionInProgram10);
-
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram0);
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram1);
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram2);
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram3);
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram4);
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram5);
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram6);
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram7);
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram8);
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram9);
-	SliderMaxYPositionInProgram.push_back(SliderMaxYPositionInProgram10);
-
-	SliderCount.push_back(SliderCount0);
-	SliderCount.push_back(SliderCount1);
-	SliderCount.push_back(SliderCount2);
-	SliderCount.push_back(SliderCount3);
-	SliderCount.push_back(SliderCount4);
-	SliderCount.push_back(SliderCount5);
-	SliderCount.push_back(SliderCount6);
-	SliderCount.push_back(SliderCount7);
-	SliderCount.push_back(SliderCount8);
-	SliderCount.push_back(SliderCount9);
-	SliderCount.push_back(SliderCount10);
-
-	SliderCountMaxValue.push_back(SliderCountMaxValue0);
-	SliderCountMaxValue.push_back(SliderCountMaxValue1);
-	SliderCountMaxValue.push_back(SliderCountMaxValue2);
-	SliderCountMaxValue.push_back(SliderCountMaxValue3);
-	SliderCountMaxValue.push_back(SliderCountMaxValue4);
-	SliderCountMaxValue.push_back(SliderCountMaxValue5);
-	SliderCountMaxValue.push_back(SliderCountMaxValue6);
-	SliderCountMaxValue.push_back(SliderCountMaxValue7);
-	SliderCountMaxValue.push_back(SliderCountMaxValue8);
-	SliderCountMaxValue.push_back(SliderCountMaxValue9);
-	SliderCountMaxValue.push_back(SliderCountMaxValue10);
-
-	SliderValue.push_back(SliderValue0);
-	SliderValue.push_back(SliderValue1);
-	SliderValue.push_back(SliderValue2);
-	SliderValue.push_back(SliderValue3);
-	SliderValue.push_back(SliderValue4);
-	SliderValue.push_back(SliderValue5);
-	SliderValue.push_back(SliderValue6);
-	SliderValue.push_back(SliderValue7);
-	SliderValue.push_back(SliderValue8);
-	SliderValue.push_back(SliderValue9);
-	SliderValue.push_back(SliderValue10);
+	
 }
 
 int Gui::InputHandling()
@@ -223,34 +57,30 @@ bool Gui::SelectionController(int Width, int Height, int xPos, int yPos)
 	}
 }
 
-int Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string Gui_Title)
+void Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string Gui_Title)
 {
-	GuiTitle[m_GuiTokenNumber] = Gui_Title;
-	GuiCreated[m_GuiTokenNumber] = true;
-	Rects[m_GuiTokenNumber].w = GuiWidth;
-	Rects[m_GuiTokenNumber].h = GuiHeight;
-	Rects[m_GuiTokenNumber].x = GuiXpos;
-	Rects[m_GuiTokenNumber].y = GuiYpos;
+	GuiTitle = Gui_Title;
+	GuiCreated = true;
+	SrcRect.w = GuiWidth;
+	SrcRect.h = GuiHeight;
+	SrcRect.x = GuiXpos;
+	SrcRect.y = GuiYpos;
 
-	StoredGuiNumber = m_GuiTokenNumber;
-
-	m_GuiTokenNumber++;
-
-	return StoredGuiNumber;
+	std::cout << "Hello" << std::endl;
 }
 
-void Gui::CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue)
+void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue)
 {
-	if (GuiTitle[GuiTokenNumber] != "" && Rects[GuiTokenNumber].w != 0 && Rects[GuiTokenNumber].h != 0)
+	if (GuiTitle != "" && SrcRect.w != 0 && SrcRect.h != 0)
 	{
 		if (WhatToCreate == "Transform Component")
 		{
-			SliderSrcRect[GuiTokenNumber].x = Rects[GuiTokenNumber].x + 50;
-			SliderSrcRect[GuiTokenNumber].y = Rects[GuiTokenNumber].y + 50;
-			SliderSrcRect[GuiTokenNumber].w = 50;
-			SliderSrcRect[GuiTokenNumber].h = 50;
+			SliderSrcRect.x = SrcRect.x + 50;
+			SliderSrcRect.y = SrcRect.y + 50;
+			SliderSrcRect.w = 50;
+			SliderSrcRect.h = 50;
 
-			SliderCreated[GuiTokenNumber] = true;
+			SliderCreated = true;
 		}
 
 		/*if (WhatToCreate == "Slider")
@@ -285,14 +115,14 @@ void Gui::CreateGuiOptions(int GuiTokenNumber, std::string WhatToCreate, std::st
 
 void Gui::DelGui(int GuiTokenNumber)
 {
-	if (GuiTitle[GuiTokenNumber] != "" && Rects[GuiTokenNumber].w != 0 && Rects[GuiTokenNumber].h != 0)
+	if (GuiTitle != "" && SrcRect.w != 0 && SrcRect.h != 0)
 	{
-		GuiTitle[GuiTokenNumber] = "";
-		GuiCreated[GuiTokenNumber] = false;
-		Rects[GuiTokenNumber].w = 0;
-		Rects[GuiTokenNumber].h = 0;
-		Rects[GuiTokenNumber].x = 0;
-		Rects[GuiTokenNumber].y = 0;
+		GuiTitle = "";
+		GuiCreated = false;
+		SrcRect.w = 0;
+		SrcRect.h = 0;
+		SrcRect.x = 0;
+		SrcRect.y = 0;
 	}
 	else
 	{
@@ -306,120 +136,109 @@ void Gui::Update()
 	OldMouseYPos = MouseY;
 
 	InputHandling();
-
-	for (int i = 0; i <= m_GuiTokenNumber; i++)
+	
+	if (SliderCreated)
 	{
-		if (SliderCreated[i])
+		StoreSelection = SelectionController(SliderSrcRect.w, SliderSrcRect.h, SliderSrcRect.x, SliderSrcRect.y);
+
+		if (StoreSelection)
 		{
-			StoreSelection = SelectionController(SliderSrcRect[i].w, SliderSrcRect[i].h, SliderSrcRect[i].x, SliderSrcRect[i].y);
-
-			if (StoreSelection)
+			if (InputHandling() == 2)
 			{
-				if (InputHandling() == 2)
-				{
-					WhichGuiMenuIsSelected = i;
-					IsMouseD = true;
-				}
+				IsMouseD = true;
 			}
-
-			if(InputHandling() == 1)
-			{
-				WhichGuiMenuIsSelected = i;
-				IsMouseD = false;
-			}
-
-			if (IsMouseD)
-			{
-				if (MouseX != OldMouseXPos)
-				{
-					if (MouseX > OldMouseXPos)
-					{
-						SliderCounting++;
-					}
-					else if (MouseX < OldMouseXPos)
-					{
-						SliderCounting--;
-					}
-				}
-			}
-
-			std::cout << SliderCounting << std::endl;
 		}
 
-		/*if (SliderAdjusterCreated[i])
+		if (InputHandling() == 1)
 		{
-			StoreSelection = SelectionController(SliderAdjusterRect[i].w, SliderAdjusterRect[i].h, SliderAdjusterRect[i].x, SliderAdjusterRect[i].y);
+			IsMouseD = false;
+		}
 
-			if (StoreSelection)
+		if (IsMouseD)
+		{
+			if (MouseX != OldMouseXPos)
 			{
-				if (InputHandling() == 2)
+				if (MouseX > OldMouseXPos)
 				{
-					WhichGuiMenuIsSelected = i;
-					IsMouseD = true;
+					SliderCounting++;
+				}
+				else if (MouseX < OldMouseXPos)
+				{
+					SliderCounting--;
 				}
 			}
+		}
 
-			if (InputHandling() == 1)
+		std::cout << SliderCounting << std::endl;
+	}
+
+	/*if (SliderAdjusterCreated[i])
+	{
+		StoreSelection = SelectionController(SliderAdjusterRect[i].w, SliderAdjusterRect[i].h, SliderAdjusterRect[i].x, SliderAdjusterRect[i].y);
+
+		if (StoreSelection)
+		{
+			if (InputHandling() == 2)
 			{
 				WhichGuiMenuIsSelected = i;
-				IsMouseD = false;
+				IsMouseD = true;
 			}
+		}
 
+		if (InputHandling() == 1)
+		{
+			WhichGuiMenuIsSelected = i;
+			IsMouseD = false;
+		}
+
+		OldMouseXPos = SliderAdjusterRect[WhichGuiMenuIsSelected].x;
+
+		if (IsMouseD)
+		{
 			OldMouseXPos = SliderAdjusterRect[WhichGuiMenuIsSelected].x;
 
-			if (IsMouseD)
+			if (SliderXPosition[WhichGuiMenuIsSelected] <= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
 			{
-				OldMouseXPos = SliderAdjusterRect[WhichGuiMenuIsSelected].x;
-
-				if (SliderXPosition[WhichGuiMenuIsSelected] <= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
+				if (SliderMaxXPositionInProgram[WhichGuiMenuIsSelected] >= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
 				{
-					if (SliderMaxXPositionInProgram[WhichGuiMenuIsSelected] >= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
-					{
-						SliderAdjusterRect[WhichGuiMenuIsSelected].x = MouseX - 5;
-					}
+					SliderAdjusterRect[WhichGuiMenuIsSelected].x = MouseX - 5;
 				}
 			}
+		}
 
-			if (SliderXPosition[WhichGuiMenuIsSelected] >= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
-			{
-				SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderXPosition[WhichGuiMenuIsSelected];
-			}
-			else if (SliderMaxXPositionInProgram[WhichGuiMenuIsSelected] <= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
-			{
-				SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderMaxXPositionInProgram[WhichGuiMenuIsSelected];
-			}
-		}*/
-	}
+		if (SliderXPosition[WhichGuiMenuIsSelected] >= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
+		{
+			SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderXPosition[WhichGuiMenuIsSelected];
+		}
+		else if (SliderMaxXPositionInProgram[WhichGuiMenuIsSelected] <= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
+		{
+			SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderMaxXPositionInProgram[WhichGuiMenuIsSelected];
+		}
+	}*/
 }
 
 void Gui::Draw()
 {
-	for (int i = 0; i < m_GuiTokenNumber; i++)
+	if (GuiCreated)
 	{
-		if (GuiCreated[i])
-		{
-			//Menu
-			SDL_SetRenderDrawColor(Init::Renderer, 255, 255, 255, 255);
+		//Menu
+		SDL_SetRenderDrawColor(Init::Renderer, 255, 255, 255, 255);
 
-			SDL_RenderDrawRect(Init::Renderer, &Rects[i]);
-			SDL_RenderFillRect(Init::Renderer, &Rects[i]);
+		SDL_RenderDrawRect(Init::Renderer, &SrcRect);
+		SDL_RenderFillRect(Init::Renderer, &SrcRect);
 
-			SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
-		}
+		SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
 	}
 
-	for (int i = 0; i < m_GuiTokenNumber; i++)
+	if (SliderCreated)
 	{
-		if (SliderCreated[i])
-		{
-			//Options
-			SDL_SetRenderDrawColor(Init::Renderer, 137, 140, 146, 255);
+		//Options
+		SDL_SetRenderDrawColor(Init::Renderer, 137, 140, 146, 255);
 
-			SDL_RenderDrawRect(Init::Renderer, &SliderSrcRect[i]);
-			SDL_RenderFillRect(Init::Renderer, &SliderSrcRect[i]);
+		SDL_RenderDrawRect(Init::Renderer, &SliderSrcRect);
+		SDL_RenderFillRect(Init::Renderer, &SliderSrcRect);
 
-			SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
-		}
+		SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
 	}
 	/*
 	for (int i = 0; i < m_GuiTokenNumber; i++)
