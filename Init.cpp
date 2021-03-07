@@ -15,6 +15,7 @@ constexpr int ScreenHeight = 720;
 //Map map;
 Gui gui;
 Gui gui1;
+//RenderText rendertext;
 
 SDL_Renderer* Init::Renderer = nullptr;
 
@@ -60,17 +61,21 @@ void Init::Init_SDL2()
 
 	//map.Init();
 	//player.Init();
+	gui.InitGui();
+	gui1.InitGui();
+	//rendertext.Init();
 }
 
 void Init::Load()
 {
 	//player.Load();
 	//map.Load();
-	gui.InitGui();
+	//rendertext.Load();
+	gui.LoadGui();
 	gui.CreateGuiMenu("Menu", true, 200, 200, 100, 100, "TestGui");
 	gui.CreateGuiOptions("Transform Component", "Hello", 100);
-	gui1.InitGui();
-	gui1.CreateGuiMenu("Menu", true, 200, 200, 200, 200, "TestGui");
+	gui1.LoadGui();
+	gui1.CreateGuiMenu("Menu", true, 500, 500, 500, 500, "TestGui");
 	gui1.CreateGuiOptions("Transform Component", "Hello", 100);
 }
 
@@ -91,6 +96,7 @@ void Init::Update()
 	//player.Update();
 	gui.Update();
 	gui1.Update();
+	//rendertext.Update();
 }
 
 void Init::Draw()
@@ -98,8 +104,9 @@ void Init::Draw()
 	SDL_RenderClear(Renderer);
 	//map.Draw();
 	//player.Draw();
-	gui.Draw();
 	gui1.Draw();
+	gui.Draw();
+	//rendertext.Draw();
 	SDL_RenderPresent(Renderer);
 }
 
@@ -107,6 +114,9 @@ void Init::Clean()
 {
 	//player.Clean();
 	//map.Clean();
+	//rendertext.Clean();
+	gui.Clean();
+	gui1.Clean();
 	TTF_Quit();
 	SDL_DestroyWindow(Window);
 	SDL_DestroyRenderer(Renderer);

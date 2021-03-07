@@ -4,10 +4,17 @@
 #include "Gui.h"
 #include <iostream>
 #include "Init.h"
-
+#include "RenderText.h"
+	
 void Gui::InitGui()
 {
-	
+	TTF_Init();
+}
+
+void Gui::LoadGui()
+{
+	CalibriFont = TTF_OpenFont("Fonts/Calibri.ttf", 20);
+	TextColor = { 255, 255, 255 };
 }
 
 int Gui::InputHandling()
@@ -65,8 +72,6 @@ void Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int Gui
 	SrcRect.h = GuiHeight;
 	SrcRect.x = GuiXpos;
 	SrcRect.y = GuiYpos;
-
-	std::cout << "Hello" << std::endl;
 }
 
 void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue)
@@ -81,6 +86,11 @@ void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, 
 			SliderSrcRect.h = 50;
 
 			SliderCreated = true;
+
+			TextRect.x = SliderSrcRect.x + ((SliderSrcRect.w / 2) / 2);
+			TextRect.y = SliderSrcRect.y + ((SliderSrcRect.h / 2) / 2);
+			TextRect.w = 25;
+			TextRect.h = 25;
 		}
 
 		/*if (WhatToCreate == "Slider")
@@ -161,15 +171,15 @@ void Gui::Update()
 				if (MouseX > OldMouseXPos)
 				{
 					SliderCounting++;
+					LoadText(" ", SliderCounting, false, true);
 				}
 				else if (MouseX < OldMouseXPos)
 				{
 					SliderCounting--;
+					LoadText(" ", SliderCounting, false, true);
 				}
 			}
 		}
-
-		std::cout << SliderCounting << std::endl;
 	}
 
 	/*if (SliderAdjusterCreated[i])
@@ -253,4 +263,31 @@ void Gui::Draw()
 			SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
 		}
 	}*/
+
+	SDL_RenderCopy(Init::Renderer, TextTexture, 0, &TextRect);
+}
+
+void Gui::LoadText(const char* f_ConstCharText, int f_IntText, bool ConstCharTextBool, bool IntTextBool)
+{
+	SDL_QueryTexture(TextTexture, 0, 0, &TextRect.w, &TextRect.h);
+
+	if (ConstCharTextBool)
+	{
+		TextSurface = TTF_RenderText_Solid(CalibriFont, f_ConstCharText, TextColor);
+		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
+		SDL_FreeSurface(TextSurface);
+	}
+	else
+	{
+		ConvertedFromIntToString = std::to_string(f_IntText);
+
+		TextSurface = TTF_RenderText_Solid(CalibriFont, ConvertedFromIntToString.c_str(), TextColor);
+		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
+		SDL_FreeSurface(TextSurface);
+	}
+}
+
+void Gui::Clean()
+{
+	SDL_DestroyTexture(TextTexture);
 }

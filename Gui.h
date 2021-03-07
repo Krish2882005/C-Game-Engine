@@ -7,11 +7,13 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <sstream>
 
 class Gui
 {
 public:
 	void InitGui();
+	void LoadGui();
 	int InputHandling();
 	bool SelectionController(int Width, int Height, int xPos, int yPos);
 	void CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
@@ -19,6 +21,8 @@ public:
 	void DelGui(int GuiTokenNumber);
 	void Update();
 	void Draw();
+	void LoadText(const char* f_ConstCharText, int f_IntText, bool ConstCharTextBool, bool IntTextBool);
+	void Clean();
 private:
 	int MouseX = 0;
 	int MouseY = 0;
@@ -64,4 +68,12 @@ private:
 
 	int SliderDifference = 0;
 	int SliderCounting = 0;
+
+	SDL_Rect TextRect;
+
+	TTF_Font* CalibriFont = nullptr;
+	SDL_Color TextColor;
+	SDL_Surface* TextSurface = nullptr;
+	SDL_Texture* TextTexture = nullptr;
+	std::string ConvertedFromIntToString = " ";
 };
