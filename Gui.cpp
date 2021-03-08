@@ -13,7 +13,7 @@ void Gui::InitGui()
 
 void Gui::LoadGui()
 {
-	CalibriFont = TTF_OpenFont("Fonts/Calibri.ttf", 20);
+	CalibriFont = TTF_OpenFont("Fonts/Calibri.ttf", 30);
 	TextColor = { 255, 255, 255 };
 }
 
@@ -269,12 +269,11 @@ void Gui::Draw()
 
 void Gui::LoadText(const char* f_ConstCharText, int f_IntText, bool ConstCharTextBool, bool IntTextBool)
 {
-	SDL_QueryTexture(TextTexture, 0, 0, &TextRect.w, &TextRect.h);
-
 	if (ConstCharTextBool)
 	{
 		TextSurface = TTF_RenderText_Solid(CalibriFont, f_ConstCharText, TextColor);
 		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
+		SDL_QueryTexture(TextTexture, 0, 0, &TextRect.w, &TextRect.h);
 		SDL_FreeSurface(TextSurface);
 	}
 	else
@@ -283,6 +282,7 @@ void Gui::LoadText(const char* f_ConstCharText, int f_IntText, bool ConstCharTex
 
 		TextSurface = TTF_RenderText_Solid(CalibriFont, ConvertedFromIntToString.c_str(), TextColor);
 		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
+		SDL_QueryTexture(TextTexture, 0, 0, &TextRect.w, &TextRect.h);
 		SDL_FreeSurface(TextSurface);
 	}
 }
