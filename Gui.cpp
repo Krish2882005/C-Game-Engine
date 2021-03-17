@@ -21,34 +21,33 @@ int Gui::InputHandling()
 {
 	switch (Init::Event.type)
 	{
-	case SDL_MOUSEMOTION:
-	{
-		MouseX = Init::Event.motion.x;
-		MouseY = Init::Event.motion.y;
-		return 0;
-		break;
-	}
-	case SDL_MOUSEBUTTONDOWN:
-	{
-		if (Init::Event.button.button == 1)
+		case SDL_MOUSEMOTION:
 		{
-			return 2;
+			MouseX = Init::Event.motion.x;
+			MouseY = Init::Event.motion.y;
+			break;
 		}
-		break;
-	}
-	case SDL_MOUSEBUTTONUP:
-	{
-		if (Init::Event.button.button == 1)
+		case SDL_MOUSEBUTTONDOWN:
 		{
-			return 1;
+			if (Init::Event.button.button == 1)
+			{
+				return 2;
+			}
+			break;
 		}
-		break;
-	}
-	default:
-	{
-		return 0;
-		break;
-	}
+		case SDL_MOUSEBUTTONUP:
+		{
+			if (Init::Event.button.button == 1)
+			{
+				return 1;
+			}
+			break;
+		}
+		default:
+		{
+			return 0;
+			break;
+		}
 	}
 }
 
@@ -74,7 +73,7 @@ void Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int Gui
 	SrcRect.y = GuiYpos;
 }
 
-void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue)
+void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue)
 {
 	if (GuiTitle != "" && SrcRect.w != 0 && SrcRect.h != 0)
 	{
@@ -85,12 +84,14 @@ void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, 
 			SliderSrcRect.w = 50;
 			SliderSrcRect.h = 50;
 
-			SliderCreated = true;
-
-			TextRect.x = SliderSrcRect.x + ((SliderSrcRect.w / 2) / 2);
+			TextRect.x = SliderSrcRect.x + ((SliderSrcRect.w / 2) / 2); 
 			TextRect.y = SliderSrcRect.y + ((SliderSrcRect.h / 2) / 2);
 			TextRect.w = 25;
 			TextRect.h = 25;
+
+			LoadText(" ", SliderCurrentValue, false, true);
+
+			SliderCreated = true;
 		}
 
 		/*if (WhatToCreate == "Slider")

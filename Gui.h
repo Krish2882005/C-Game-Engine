@@ -17,7 +17,7 @@ public:
 	int InputHandling();
 	bool SelectionController(int Width, int Height, int xPos, int yPos);
 	void CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
-	void CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue);
+	void CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue);
 	void DelGui(int GuiTokenNumber);
 	void Update();
 	void Draw();

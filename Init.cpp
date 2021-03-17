@@ -73,10 +73,10 @@ void Init::Load()
 	//rendertext.Load();
 	gui.LoadGui();
 	gui.CreateGuiMenu("Menu", true, 200, 200, 100, 100, "TestGui");
-	gui.CreateGuiOptions("Transform Component", "Hello", 100);
+	gui.CreateGuiOptions("Transform Component", "Hello", 100, 0);
 	gui1.LoadGui();
 	gui1.CreateGuiMenu("Menu", true, 500, 500, 500, 500, "TestGui");
-	gui1.CreateGuiOptions("Transform Component", "Hello", 100);
+	gui1.CreateGuiOptions("Transform Component", "Hello", 100, 0);
 }
 
 void Init::Events()
