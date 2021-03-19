@@ -17,9 +17,10 @@ public:
 	int InputHandling();
 	bool SelectionController(int Width, int Height, int xPos, int yPos);
 	void CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
-	void CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue);
+	void CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour = { 137, 140, 146, 255 });
 	void DelGui(int GuiTokenNumber);
 	void Update();
+	int CountingFunction();
 	void Draw();
 	void LoadText(const char* f_ConstCharText, int f_IntText, bool ConstCharTextBool, bool IntTextBool);
 	void Clean();
@@ -76,4 +77,6 @@ private:
 	SDL_Surface* TextSurface = nullptr;
 	SDL_Texture* TextTexture = nullptr;
 	std::string ConvertedFromIntToString = " ";
+
+	SDL_Color SliderColour;
 };

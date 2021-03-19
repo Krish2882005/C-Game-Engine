@@ -21,23 +21,20 @@ void RenderText::LoadText(SDL_Rect f_TextRect, const char* f_ConstCharText, int 
 {
 	TextRect = f_TextRect;
 
-	//SDL_QueryTexture(TextTexture, 0, 0, &TextRect.w, &TextRect.h);
-
 	if (ConstCharTextBool)
 	{
 		TextSurface = TTF_RenderText_Solid(CalibriFont, f_ConstCharText, TextColor);
 		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
+		SDL_QueryTexture(TextTexture, 0, 0, &TextRect.w, &TextRect.h);
 		SDL_FreeSurface(TextSurface);
 	}
 	else
 	{
-		IntToStringStringStream << f_IntText;
-		//IntToStringStringStream >> ConvertedFromIntToString;
-
 		ConvertedFromIntToString = std::to_string(f_IntText);
 
 		TextSurface = TTF_RenderText_Solid(CalibriFont, ConvertedFromIntToString.c_str(), TextColor);
 		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
+		SDL_QueryTexture(TextTexture, 0, 0, &TextRect.w, &TextRect.h);
 		SDL_FreeSurface(TextSurface);
 	}
 }

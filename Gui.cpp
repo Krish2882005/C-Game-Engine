@@ -73,12 +73,14 @@ void Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int Gui
 	SrcRect.y = GuiYpos;
 }
 
-void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue)
+void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour)
 {
 	if (GuiTitle != "" && SrcRect.w != 0 && SrcRect.h != 0)
 	{
 		if (WhatToCreate == "Transform Component")
 		{
+			SliderColour = sliderColour;
+
 			SliderSrcRect.x = SrcRect.x + 50;
 			SliderSrcRect.y = SrcRect.y + 50;
 			SliderSrcRect.w = 50;
@@ -228,6 +230,11 @@ void Gui::Update()
 	}*/
 }
 
+int Gui::CountingFunction()
+{
+	return SliderCounting;
+}
+
 void Gui::Draw()
 {
 	if (GuiCreated)
@@ -244,7 +251,7 @@ void Gui::Draw()
 	if (SliderCreated)
 	{
 		//Options
-		SDL_SetRenderDrawColor(Init::Renderer, 137, 140, 146, 255);
+		SDL_SetRenderDrawColor(Init::Renderer, SliderColour.r, SliderColour.g, SliderColour.b, SliderColour.a);
 
 		SDL_RenderDrawRect(Init::Renderer, &SliderSrcRect);
 		SDL_RenderFillRect(Init::Renderer, &SliderSrcRect);
