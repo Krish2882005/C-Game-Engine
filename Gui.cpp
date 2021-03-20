@@ -95,30 +95,6 @@ void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, 
 
 			SliderCreated = true;
 		}
-
-		/*if (WhatToCreate == "Slider")
-		{
-			//Overlay
-			SliderSrcRect[GuiTokenNumber].x = Rects[GuiTokenNumber].x + 50;
-			SliderSrcRect[GuiTokenNumber].y = Rects[GuiTokenNumber].y + 50;
-			SliderSrcRect[GuiTokenNumber].w = Rects[GuiTokenNumber].w - 100;
-			SliderSrcRect[GuiTokenNumber].h = 20;
-
-			SliderCreated[GuiTokenNumber] = true;
-
-			//Slider
-			SliderAdjusterRect[GuiTokenNumber].w = 20;
-			SliderAdjusterRect[GuiTokenNumber].h = 2 * SliderSrcRect[GuiTokenNumber].h;
-			SliderAdjusterRect[GuiTokenNumber].x = SliderSrcRect[GuiTokenNumber].x;
-			SliderAdjusterRect[GuiTokenNumber].y = SliderSrcRect[GuiTokenNumber].y - ((SliderAdjusterRect[GuiTokenNumber].h / 2) / 2);
-
-			SliderXPosition[GuiTokenNumber] = SliderSrcRect[GuiTokenNumber].x;
-			SliderMaxXPositionInProgram[GuiTokenNumber] = SliderAdjusterRect[GuiTokenNumber].x + SliderSrcRect[GuiTokenNumber].w;
-
-			SliderAdjusterCreated[GuiTokenNumber] = true;
-
-			SliderCountMaxValue[WhichGuiMenuIsSelected] = SliderMaxValue;
-		}*/
 	}
 	else
 	{
@@ -184,50 +160,6 @@ void Gui::Update()
 			}
 		}
 	}
-
-	/*if (SliderAdjusterCreated[i])
-	{
-		StoreSelection = SelectionController(SliderAdjusterRect[i].w, SliderAdjusterRect[i].h, SliderAdjusterRect[i].x, SliderAdjusterRect[i].y);
-
-		if (StoreSelection)
-		{
-			if (InputHandling() == 2)
-			{
-				WhichGuiMenuIsSelected = i;
-				IsMouseD = true;
-			}
-		}
-
-		if (InputHandling() == 1)
-		{
-			WhichGuiMenuIsSelected = i;
-			IsMouseD = false;
-		}
-
-		OldMouseXPos = SliderAdjusterRect[WhichGuiMenuIsSelected].x;
-
-		if (IsMouseD)
-		{
-			OldMouseXPos = SliderAdjusterRect[WhichGuiMenuIsSelected].x;
-
-			if (SliderXPosition[WhichGuiMenuIsSelected] <= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
-			{
-				if (SliderMaxXPositionInProgram[WhichGuiMenuIsSelected] >= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
-				{
-					SliderAdjusterRect[WhichGuiMenuIsSelected].x = MouseX - 5;
-				}
-			}
-		}
-
-		if (SliderXPosition[WhichGuiMenuIsSelected] >= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
-		{
-			SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderXPosition[WhichGuiMenuIsSelected];
-		}
-		else if (SliderMaxXPositionInProgram[WhichGuiMenuIsSelected] <= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
-		{
-			SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderMaxXPositionInProgram[WhichGuiMenuIsSelected];
-		}
-	}*/
 }
 
 int Gui::CountingFunction()
@@ -258,19 +190,6 @@ void Gui::Draw()
 
 		SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
 	}
-	/*
-	for (int i = 0; i < m_GuiTokenNumber; i++)
-	{
-		if (SliderAdjusterCreated[i])
-		{
-			SDL_SetRenderDrawColor(Init::Renderer, 0, 146, 167, 255);
-
-			SDL_RenderDrawRect(Init::Renderer, &SliderAdjusterRect[i]);
-			SDL_RenderFillRect(Init::Renderer, &SliderAdjusterRect[i]);
-
-			SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
-		}
-	}*/
 
 	SDL_RenderCopy(Init::Renderer, TextTexture, 0, &TextRect);
 }
