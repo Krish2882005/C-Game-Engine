@@ -83,7 +83,7 @@ void Init::Events()
 {
 	SDL_PollEvent(&Event);
 
-	if(Event.type == SDL_QUIT)
+	if (Event.type == SDL_QUIT)
 	{
 		m_IsRunning = false;
 	}
