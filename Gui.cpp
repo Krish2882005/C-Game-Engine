@@ -73,7 +73,7 @@ void Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int Gui
 	SrcRect.y = GuiYpos;
 }
 
-void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour, SDL_Color openFileDialogColour)
+void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour)
 {
 	if (GuiTitle != "" && SrcRect.w != 0 && SrcRect.h != 0)
 	{
@@ -95,26 +95,34 @@ void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, 
 
 			SliderCreated = true;
 		}
-		else if (WhatToCreate == "Open File Dialogue")
-		{
-			OpenFileDialogColour = openFileDialogColour;
 
-		}
+		/*if (WhatToCreate == "Slider")
+		{
+			//Overlay
+			SliderSrcRect[GuiTokenNumber].x = Rects[GuiTokenNumber].x + 50;
+			SliderSrcRect[GuiTokenNumber].y = Rects[GuiTokenNumber].y + 50;
+			SliderSrcRect[GuiTokenNumber].w = Rects[GuiTokenNumber].w - 100;
+			SliderSrcRect[GuiTokenNumber].h = 20;
+
+			SliderCreated[GuiTokenNumber] = true;
+
+			//Slider
+			SliderAdjusterRect[GuiTokenNumber].w = 20;
+			SliderAdjusterRect[GuiTokenNumber].h = 2 * SliderSrcRect[GuiTokenNumber].h;
+			SliderAdjusterRect[GuiTokenNumber].x = SliderSrcRect[GuiTokenNumber].x;
+			SliderAdjusterRect[GuiTokenNumber].y = SliderSrcRect[GuiTokenNumber].y - ((SliderAdjusterRect[GuiTokenNumber].h / 2) / 2);
+
+			SliderXPosition[GuiTokenNumber] = SliderSrcRect[GuiTokenNumber].x;
+			SliderMaxXPositionInProgram[GuiTokenNumber] = SliderAdjusterRect[GuiTokenNumber].x + SliderSrcRect[GuiTokenNumber].w;
+
+			SliderAdjusterCreated[GuiTokenNumber] = true;
+
+			SliderCountMaxValue[WhichGuiMenuIsSelected] = SliderMaxValue;
+		}*/
 	}
 	else
 	{
 		std::cout << "Error, Can't Find The Specified Gui Menu" << std::endl;
-	}
-}
-
-void Gui::CreateTextBox(std::string WhatToCreate, SDL_Rect textBoxRect, SDL_Color textBoxColour)
-{
-	if (WhatToCreate == "Text Box")
-	{
-		TextBoxColour = textBoxColour;
-		TextBoxRect = textBoxRect;
-
-		TextBoxCreated = true;
 	}
 }
 
@@ -177,24 +185,49 @@ void Gui::Update()
 		}
 	}
 
-	if (TextBoxCreated)
+	/*if (SliderAdjusterCreated[i])
 	{
-		TextBoxCount++;
-		
-		if (TextBoxCount == 60)
-		{
-			TextBoxCount = 0;
+		StoreSelection = SelectionController(SliderAdjusterRect[i].w, SliderAdjusterRect[i].h, SliderAdjusterRect[i].x, SliderAdjusterRect[i].y);
 
-			if (TextBoxLineVisible)
+		if (StoreSelection)
+		{
+			if (InputHandling() == 2)
 			{
-				TextBoxLineVisible = false;
-			}
-			else if (TextBoxLineVisible == false)
-			{
-				TextBoxLineVisible = true;
+				WhichGuiMenuIsSelected = i;
+				IsMouseD = true;
 			}
 		}
-	}
+
+		if (InputHandling() == 1)
+		{
+			WhichGuiMenuIsSelected = i;
+			IsMouseD = false;
+		}
+
+		OldMouseXPos = SliderAdjusterRect[WhichGuiMenuIsSelected].x;
+
+		if (IsMouseD)
+		{
+			OldMouseXPos = SliderAdjusterRect[WhichGuiMenuIsSelected].x;
+
+			if (SliderXPosition[WhichGuiMenuIsSelected] <= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
+			{
+				if (SliderMaxXPositionInProgram[WhichGuiMenuIsSelected] >= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
+				{
+					SliderAdjusterRect[WhichGuiMenuIsSelected].x = MouseX - 5;
+				}
+			}
+		}
+
+		if (SliderXPosition[WhichGuiMenuIsSelected] >= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
+		{
+			SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderXPosition[WhichGuiMenuIsSelected];
+		}
+		else if (SliderMaxXPositionInProgram[WhichGuiMenuIsSelected] <= SliderAdjusterRect[WhichGuiMenuIsSelected].x)
+		{
+			SliderAdjusterRect[WhichGuiMenuIsSelected].x = SliderMaxXPositionInProgram[WhichGuiMenuIsSelected];
+		}
+	}*/
 }
 
 int Gui::CountingFunction()
@@ -225,6 +258,19 @@ void Gui::Draw()
 
 		SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
 	}
+	/*
+	for (int i = 0; i < m_GuiTokenNumber; i++)
+	{
+		if (SliderAdjusterCreated[i])
+		{
+			SDL_SetRenderDrawColor(Init::Renderer, 0, 146, 167, 255);
+
+			SDL_RenderDrawRect(Init::Renderer, &SliderAdjusterRect[i]);
+			SDL_RenderFillRect(Init::Renderer, &SliderAdjusterRect[i]);
+
+			SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
+		}
+	}*/
 
 	SDL_RenderCopy(Init::Renderer, TextTexture, 0, &TextRect);
 }
