@@ -150,13 +150,13 @@ void Gui::Update()
 				if (MouseX > OldMouseXPos)
 				{
 					SliderCounting++;
-					LoadText(" ", SliderCounting, false, true);
 				}
 				else if (MouseX < OldMouseXPos)
 				{
 					SliderCounting--;
-					LoadText(" ", SliderCounting, false, true);
 				}
+
+				LoadText(" ", SliderCounting, false, true);
 			}
 		}
 	}
