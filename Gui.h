@@ -17,7 +17,8 @@ public:
 	int InputHandling();
 	bool SelectionController(int Width, int Height, int xPos, int yPos);
 	void CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
-	void CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour = { 137, 140, 146, 255 });
+	void CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour = { 137, 140, 146, 255 }, SDL_Color openFileDialogColour = { 137, 140, 146, 255 });
+	void CreateTextBox(std::string WhatToCreate, SDL_Rect TextBoxRect, SDL_Color textBoxColour = { 137, 140, 146, 255 });
 	void DelGui(int GuiTokenNumber);
 	void Update();
 	int CountingFunction();
@@ -41,6 +42,10 @@ private:
 	SDL_Rect SliderAdjusterRect;
 
 	bool SliderAdjusterCreated = false;
+
+	SDL_Rect TextBoxRect;
+
+	bool TextBoxCreated = false;
 
 	int SliderXPosition = 0;
 
@@ -79,4 +84,10 @@ private:
 	std::string ConvertedFromIntToString = " ";
 
 	SDL_Color SliderColour;
+	SDL_Color TextBoxColour;
+	SDL_Color OpenFileDialogColour;
+
+	int TextBoxCount = 0;
+
+	bool TextBoxLineVisible = false;
 };
