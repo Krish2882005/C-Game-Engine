@@ -18,6 +18,8 @@ public:
 	bool SelectionController(int Width, int Height, int xPos, int yPos);
 	void CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
 	void CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour = { 137, 140, 146, 255 });
+	void CreateTextBox();
+	void FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color sliderColour = { 137, 140, 146, 255 });
 	void DelGui(int GuiTokenNumber);
 	void Update();
 	int CountingFunction();
@@ -79,4 +81,14 @@ private:
 	std::string ConvertedFromIntToString = " ";
 
 	SDL_Color SliderColour;
+
+	int TextBoxCounter = 1;
+	int MaxTextBoxCounter = 60;
+
+	int FileAdressTextBoxCounter = 1;
+	int MaxFileAdressTextBoxCounter = 60;
+	bool FileAdressTextBoxTextLine = true;
+	bool FileAdressTextBoxCreated = false;
+	std::string FileAdressTextBoxTitle = "";
+	SDL_Rect FileAdressTextBoxSrcRect;
 };

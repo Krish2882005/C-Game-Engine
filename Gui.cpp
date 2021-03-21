@@ -102,6 +102,25 @@ void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, 
 	}
 }
 
+void Gui::CreateTextBox()
+{
+	if (TextBoxCounter < MaxTextBoxCounter)
+	{
+		TextBoxCounter++;
+	}
+	else
+	{
+		TextBoxCounter = 1;
+	}
+}
+
+void Gui::FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color sliderColour = { 137, 140, 146, 255 })
+{
+	FileAdressTextBoxCreated = true;
+	FileAdressTextBoxTitle = TitleOfOption;
+	FileAdressTextBoxSrcRect = fileAdressTextBoxSrcRect;
+}
+
 void Gui::DelGui(int GuiTokenNumber)
 {
 	if (GuiTitle != "" && SrcRect.w != 0 && SrcRect.h != 0)
@@ -158,6 +177,27 @@ void Gui::Update()
 
 				LoadText(" ", SliderCounting, false, true);
 			}
+		}
+	}
+
+	if (FileAdressTextBoxCreated)
+	{
+		if (FileAdressTextBoxCounter < MaxFileAdressTextBoxCounter)
+		{
+			FileAdressTextBoxCounter++;
+		}
+		else
+		{
+			if (FileAdressTextBoxTextLine)
+			{
+				FileAdressTextBoxTextLine = false;
+			}
+			else
+			{
+				FileAdressTextBoxTextLine = true;
+			}
+
+			FileAdressTextBoxCounter = 1;
 		}
 	}
 }
