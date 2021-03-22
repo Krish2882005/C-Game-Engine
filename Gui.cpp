@@ -114,7 +114,7 @@ void Gui::CreateTextBox()
 	}
 }
 
-void Gui::FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color sliderColour = { 137, 140, 146, 255 })
+void Gui::FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color sliderColour)
 {
 	FileAdressTextBoxCreated = true;
 	FileAdressTextBoxTitle = TitleOfOption;
