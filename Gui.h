@@ -19,7 +19,7 @@ public:
 	void CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
 	void CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour = { 137, 140, 146, 255 });
 	void CreateTextBox();
-	void FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color sliderColour = { 137, 140, 146, 255 });
+	void FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color fileAdressTextBoxColor = { 137, 140, 146, 255 }, SDL_Color fileAdressTextBoxOutlineColor = { 169, 169, 169, 255 });
 	void DelGui(int GuiTokenNumber);
 	void Update();
 	int CountingFunction();
@@ -91,4 +91,8 @@ private:
 	bool FileAdressTextBoxCreated = false;
 	std::string FileAdressTextBoxTitle = "";
 	SDL_Rect FileAdressTextBoxSrcRect;
+	SDL_Color FileAdressTextBoxColor;
+	SDL_Color FileAdressTextBoxOutlineColor;
+	SDL_Rect FileAdressTextBoxTextLineRect;
+	SDL_Color FileAdressTextBoxTextLineColour;
 };

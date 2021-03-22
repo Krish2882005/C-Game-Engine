@@ -5,10 +5,21 @@
 #include <iostream>
 #include "Init.h"
 #include "RenderText.h"
+#include "InputHandling.h"
+
+InputHandling Guiinputhandling;
 	
 void Gui::InitGui()
 {
 	TTF_Init();
+
+	FileAdressTextBoxTextLineRect.w = 2;
+	FileAdressTextBoxTextLineRect.h = 10;
+
+	FileAdressTextBoxTextLineColour.r = 255;
+	FileAdressTextBoxTextLineColour.g = 255;
+	FileAdressTextBoxTextLineColour.b = 255;
+	FileAdressTextBoxTextLineColour.a = 255;
 }
 
 void Gui::LoadGui()
@@ -114,11 +125,16 @@ void Gui::CreateTextBox()
 	}
 }
 
-void Gui::FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color sliderColour)
+void Gui::FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color fileAdressTextBoxColor, SDL_Color fileAdressTextBoxOutlineColor)
 {
 	FileAdressTextBoxCreated = true;
 	FileAdressTextBoxTitle = TitleOfOption;
 	FileAdressTextBoxSrcRect = fileAdressTextBoxSrcRect;
+	FileAdressTextBoxColor = fileAdressTextBoxColor;
+	FileAdressTextBoxOutlineColor = fileAdressTextBoxOutlineColor;
+
+	FileAdressTextBoxTextLineRect.x = FileAdressTextBoxSrcRect.x + 5;
+	FileAdressTextBoxTextLineRect.y = FileAdressTextBoxSrcRect.y + 5;
 }
 
 void Gui::DelGui(int GuiTokenNumber)
@@ -140,6 +156,8 @@ void Gui::DelGui(int GuiTokenNumber)
 
 void Gui::Update()
 {
+	std::cout << Guiinputhandling.Update() << std::endl;
+
 	OldMouseXPos = MouseX;
 	OldMouseYPos = MouseY;
 
@@ -227,6 +245,28 @@ void Gui::Draw()
 
 		SDL_RenderDrawRect(Init::Renderer, &SliderSrcRect);
 		SDL_RenderFillRect(Init::Renderer, &SliderSrcRect);
+
+		SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
+	}
+
+	if (FileAdressTextBoxCreated)
+	{
+		//File Location
+		SDL_SetRenderDrawColor(Init::Renderer, FileAdressTextBoxColor.r, FileAdressTextBoxColor.g, FileAdressTextBoxColor.b, FileAdressTextBoxColor.a);
+
+		SDL_RenderDrawRect(Init::Renderer, &FileAdressTextBoxSrcRect);
+		SDL_RenderFillRect(Init::Renderer, &FileAdressTextBoxSrcRect);
+
+		SDL_SetRenderDrawColor(Init::Renderer, FileAdressTextBoxOutlineColor.r, FileAdressTextBoxOutlineColor.g, FileAdressTextBoxOutlineColor.b, FileAdressTextBoxOutlineColor.a);
+
+		SDL_RenderDrawRect(Init::Renderer, &FileAdressTextBoxSrcRect);
+
+		if (FileAdressTextBoxTextLine)
+		{
+			SDL_SetRenderDrawColor(Init::Renderer, FileAdressTextBoxTextLineColour.r, FileAdressTextBoxTextLineColour.g, FileAdressTextBoxTextLineColour.b, FileAdressTextBoxTextLineColour.a);
+
+			SDL_RenderDrawRect(Init::Renderer, &FileAdressTextBoxTextLineRect);
+		}
 
 		SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
 	}

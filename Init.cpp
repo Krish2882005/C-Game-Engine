@@ -7,10 +7,12 @@
 #include "Map.h"
 #include "Gui.h"
 #include "RenderText.h"
+#include "InputHandling.h"
 
 constexpr int ScreenWidth = 1080;
 constexpr int ScreenHeight = 720;
 
+InputHandling inputhandling;
 //Player player;
 //Map map;
 Gui gui;
@@ -74,6 +76,7 @@ void Init::Load()
 	gui.LoadGui();
 	gui.CreateGuiMenu("Menu", true, 200, 200, 100, 100, "TestGui");
 	gui.CreateGuiOptions("Transform Component", "Hello", 100, 0, { 79, 222, 33 });
+	gui.FileAdressTextBox({ 300, 300, 50, 50 }, "TextBox");
 	gui1.LoadGui();
 	gui1.CreateGuiMenu("Menu", true, 500, 500, 500, 500, "TestGui");
 	gui1.CreateGuiOptions("Transform Component", "Hello", 100, 0, { 79, 222, 33 });
@@ -88,11 +91,17 @@ void Init::Events()
 		m_IsRunning = false;
 	}
 
+	inputhandling.Update();
 	//player.Events();
 }
 
 void Init::Update()
 {
+	if (inputhandling.Up)
+	{
+		std::cout << "Up" << std::endl;
+	}
+
 	//player.Update();
 	gui.Update();
 	gui1.Update();

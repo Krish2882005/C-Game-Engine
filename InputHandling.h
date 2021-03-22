@@ -1,10 +1,10 @@
 #pragma once
 #include <SDL.h>
 
-/*class InputHandling
+class InputHandling
 {
 	public:
-		void Update();
+		const char* Update();
 		bool Up = false;
 		bool Down = false;
 		bool Right = false;
@@ -12,4 +12,3 @@
 	private:
 		const Uint8* PressedKey = SDL_GetKeyboardState(0);
 };
-*/
