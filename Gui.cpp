@@ -8,7 +8,7 @@
 #include "InputHandling.h"
 
 InputHandling Guiinputhandling;
-	
+
 void Gui::InitGui()
 {
 	TTF_Init();
@@ -32,33 +32,33 @@ int Gui::InputHandling()
 {
 	switch (Init::Event.type)
 	{
-		case SDL_MOUSEMOTION:
+	case SDL_MOUSEMOTION:
+	{
+		MouseX = Init::Event.motion.x;
+		MouseY = Init::Event.motion.y;
+		break;
+	}
+	case SDL_MOUSEBUTTONDOWN:
+	{
+		if (Init::Event.button.button == 1)
 		{
-			MouseX = Init::Event.motion.x;
-			MouseY = Init::Event.motion.y;
-			break;
+			return 2;
 		}
-		case SDL_MOUSEBUTTONDOWN:
+		break;
+	}
+	case SDL_MOUSEBUTTONUP:
+	{
+		if (Init::Event.button.button == 1)
 		{
-			if (Init::Event.button.button == 1)
-			{
-				return 2;
-			}
-			break;
+			return 1;
 		}
-		case SDL_MOUSEBUTTONUP:
-		{
-			if (Init::Event.button.button == 1)
-			{
-				return 1;
-			}
-			break;
-		}
-		default:
-		{
-			return 0;
-			break;
-		}
+		break;
+	}
+	default:
+	{
+		return 0;
+		break;
+	}
 	}
 }
 
@@ -97,7 +97,7 @@ void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, 
 			SliderSrcRect.w = 50;
 			SliderSrcRect.h = 50;
 
-			TextRect.x = SliderSrcRect.x + ((SliderSrcRect.w / 2) / 2); 
+			TextRect.x = SliderSrcRect.x + ((SliderSrcRect.w / 2) / 2);
 			TextRect.y = SliderSrcRect.y + ((SliderSrcRect.h / 2) / 2);
 			TextRect.w = 25;
 			TextRect.h = 25;
@@ -162,7 +162,7 @@ void Gui::Update()
 	OldMouseYPos = MouseY;
 
 	InputHandling();
-	
+
 	if (SliderCreated)
 	{
 		StoreSelection = SelectionController(SliderSrcRect.w, SliderSrcRect.h, SliderSrcRect.x, SliderSrcRect.y);

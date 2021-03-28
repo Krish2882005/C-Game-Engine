@@ -24,7 +24,7 @@ public:
 	void Update();
 	int CountingFunction();
 	void Draw();
-	SDL_Texture* LoadText(const char* f_ConstCharText, int f_IntText, std::string f_StringText, bool ConstCharTextBool, bool IntTextBool, bool StringText, SDL_Rect &SrcRect);
+	SDL_Texture* LoadText(const char* f_ConstCharText, int f_IntText, std::string f_StringText, bool ConstCharTextBool, bool IntTextBool, bool StringText, SDL_Rect& SrcRect);
 	void Clean();
 private:
 	int MouseX = 0;
