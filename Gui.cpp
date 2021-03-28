@@ -135,6 +135,9 @@ void Gui::FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string Title
 
 	FileAdressTextBoxTextLineRect.x = FileAdressTextBoxSrcRect.x + 5;
 	FileAdressTextBoxTextLineRect.y = FileAdressTextBoxSrcRect.y + 5;
+
+	FileAdressTextBoxTextLineRect.w = 2;
+	FileAdressTextBoxTextLineRect.h = FileAdressTextBoxSrcRect.h - 10;
 }
 
 void Gui::DelGui(int GuiTokenNumber)
@@ -205,6 +208,9 @@ void Gui::Update()
 			//FileAdressTextBoxTextText_string.push_back(Guiinputhandling.Update());
 			FileAdressTextBoxTextText_string += Guiinputhandling.Update();
 			FileAdressTextBoxTextTexture = LoadText(" ", 0, FileAdressTextBoxTextText_string, false, false, true, FileAdressTextBoxSrcRect);
+			FileAdressTextBoxTextLineRect.w = 2;
+			FileAdressTextBoxTextLineRect.h = FileAdressTextBoxSrcRect.h - 10;
+			FileAdressTextBoxTextLineRect.x = (FileAdressTextBoxSrcRect.x + FileAdressTextBoxSrcRect.w) - 1;
 		}
 
 		if (FileAdressTextBoxCounter < MaxFileAdressTextBoxCounter)
