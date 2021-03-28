@@ -24,7 +24,7 @@ public:
 	void Update();
 	int CountingFunction();
 	void Draw();
-	void LoadText(const char* f_ConstCharText, int f_IntText, bool ConstCharTextBool, bool IntTextBool);
+	SDL_Texture* LoadText(const char* f_ConstCharText, int f_IntText, bool ConstCharTextBool, bool IntTextBool, SDL_Rect &SrcRect);
 	void Clean();
 private:
 	int MouseX = 0;
@@ -95,4 +95,8 @@ private:
 	SDL_Color FileAdressTextBoxOutlineColor;
 	SDL_Rect FileAdressTextBoxTextLineRect;
 	SDL_Color FileAdressTextBoxTextLineColour;
+	std::vector<const char*> FileAdressTextBoxTextText;
+
+	SDL_Texture* SliderTextTexture = nullptr;
+	SDL_Texture* FileAdressTextBoxTextTexture = nullptr;
 };
