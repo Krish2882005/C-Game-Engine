@@ -102,7 +102,7 @@ void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, 
 			TextRect.w = 25;
 			TextRect.h = 25;
 
-			SliderTextTexture = LoadText(" ", SliderCurrentValue, false, true, TextRect);
+			SliderTextTexture = LoadText(" ", SliderCurrentValue, " ", false, true, false, TextRect);
 
 			SliderCreated = true;
 		}
@@ -193,7 +193,7 @@ void Gui::Update()
 					SliderCounting--;
 				}
 
-				SliderTextTexture = LoadText(" ", SliderCounting, false, true, TextRect);
+				SliderTextTexture = LoadText(" ", SliderCounting, " ", false, true, false, TextRect);
 			}
 		}
 	}
@@ -202,7 +202,9 @@ void Gui::Update()
 	{
 		if (Guiinputhandling.Update() != "  ")
 		{
-			FileAdressTextBoxTextText.push_back(Guiinputhandling.Update());
+			//FileAdressTextBoxTextText_string.push_back(Guiinputhandling.Update());
+			FileAdressTextBoxTextText_string += Guiinputhandling.Update();
+			FileAdressTextBoxTextTexture = LoadText(" ", 0, FileAdressTextBoxTextText_string, false, false, true, FileAdressTextBoxSrcRect);
 		}
 
 		if (FileAdressTextBoxCounter < MaxFileAdressTextBoxCounter)
@@ -252,6 +254,8 @@ void Gui::Draw()
 		SDL_RenderFillRect(Init::Renderer, &SliderSrcRect);
 
 		SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
+
+		SDL_RenderCopy(Init::Renderer, SliderTextTexture, 0, &TextRect);
 	}
 
 	if (FileAdressTextBoxCreated)
@@ -274,18 +278,26 @@ void Gui::Draw()
 		}
 
 		SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
-	}
 
-	SDL_RenderCopy(Init::Renderer, SliderTextTexture, 0, &TextRect);
+		SDL_RenderCopy(Init::Renderer, FileAdressTextBoxTextTexture, 0, &FileAdressTextBoxSrcRect);
+	}
 }
 
-SDL_Texture* Gui::LoadText(const char* f_ConstCharText, int f_IntText, bool ConstCharTextBool, bool IntTextBool, SDL_Rect &SrcRect)
+SDL_Texture* Gui::LoadText(const char* f_ConstCharText, int f_IntText, std::string f_StringText, bool ConstCharTextBool, bool IntTextBool, bool StringText, SDL_Rect& SrcRect)
 {
 	//Return Type Is A Texture Check
 
 	if (ConstCharTextBool)
 	{
 		TextSurface = TTF_RenderText_Solid(CalibriFont, f_ConstCharText, TextColor);
+		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
+		SDL_QueryTexture(TextTexture, 0, 0, &SrcRect.w, &SrcRect.h);
+		SDL_FreeSurface(TextSurface);
+		return TextTexture;
+	}
+	else if (StringText)
+	{
+		TextSurface = TTF_RenderText_Solid(CalibriFont, f_StringText.c_str(), TextColor);
 		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
 		SDL_QueryTexture(TextTexture, 0, 0, &SrcRect.w, &SrcRect.h);
 		SDL_FreeSurface(TextSurface);
