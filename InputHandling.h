@@ -4,7 +4,7 @@
 class InputHandling
 {
 	public:
-		const char* Update();
+		const char* Update(SDL_Event f_event);
 		bool Up = false;
 		bool Down = false;
 		bool Right = false;

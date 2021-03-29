@@ -91,17 +91,12 @@ void Init::Events()
 		m_IsRunning = false;
 	}
 
-	inputhandling.Update();
+	inputhandling.Update(Event);
 	//player.Events();
 }
 
 void Init::Update()
 {
-	if (inputhandling.Up)
-	{
-		std::cout << "Up" << std::endl;
-	}
-
 	//player.Update();
 	gui.Update();
 	gui1.Update();

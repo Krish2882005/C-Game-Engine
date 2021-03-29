@@ -159,8 +159,6 @@ void Gui::DelGui(int GuiTokenNumber)
 
 void Gui::Update()
 {
-	Guiinputhandling.Update();
-
 	OldMouseXPos = MouseX;
 	OldMouseYPos = MouseY;
 
@@ -201,16 +199,34 @@ void Gui::Update()
 		}
 	}
 
+	UpdateFileAdressTextBox();
+}
+
+void Gui::UpdateFileAdressTextBox()
+{
 	if (FileAdressTextBoxCreated)
 	{
-		if (Guiinputhandling.Update() != "  ")
+		if (Guiinputhandling.Update(Init::Event) != "  ")
 		{
 			//FileAdressTextBoxTextText_string.push_back(Guiinputhandling.Update());
-			FileAdressTextBoxTextText_string += Guiinputhandling.Update();
-			FileAdressTextBoxTextTexture = LoadText(" ", 0, FileAdressTextBoxTextText_string, false, false, true, FileAdressTextBoxSrcRect);
-			FileAdressTextBoxTextLineRect.w = 2;
-			FileAdressTextBoxTextLineRect.h = FileAdressTextBoxSrcRect.h - 10;
-			FileAdressTextBoxTextLineRect.x = (FileAdressTextBoxSrcRect.x + FileAdressTextBoxSrcRect.w) - 1;
+
+			if (GuiTypingCounter == 0 || GuiTypingCounter == MaxGuiTypingCounter)
+			{
+				FileAdressTextBoxTextText_string += Guiinputhandling.Update(Init::Event);
+				FileAdressTextBoxTextTexture = LoadText(" ", 0, FileAdressTextBoxTextText_string, false, false, true, FileAdressTextBoxSrcRect);
+				FileAdressTextBoxTextLineRect.w = 2;
+				FileAdressTextBoxTextLineRect.h = FileAdressTextBoxSrcRect.h - 10;
+				FileAdressTextBoxTextLineRect.x = (FileAdressTextBoxSrcRect.x + FileAdressTextBoxSrcRect.w) - 1;
+			}
+
+			if (GuiTypingCounter != MaxGuiTypingCounter)
+			{
+				GuiTypingCounter++;
+			}
+		}
+		else
+		{
+			GuiTypingCounter = 0;
 		}
 
 		if (FileAdressTextBoxCounter < MaxFileAdressTextBoxCounter)
@@ -231,6 +247,122 @@ void Gui::Update()
 			FileAdressTextBoxCounter = 1;
 		}
 	}
+}
+
+
+std::vector<const char*> Gui::TextBoxUpdateIputHandling()
+{
+	TextBoxInputHandlingKeys.clear();
+
+	if (Init::Event.type == SDL_KEYDOWN)
+	{
+		if (GuiPressedKey[SDL_SCANCODE_A])
+		{
+			TextBoxInputHandlingKeys.push_back("A");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_B])
+		{
+			TextBoxInputHandlingKeys.push_back("B");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_C])
+		{
+			TextBoxInputHandlingKeys.push_back("C");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_D])
+		{
+			TextBoxInputHandlingKeys.push_back("D");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_E])
+		{
+			TextBoxInputHandlingKeys.push_back("E");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_F])
+		{
+			TextBoxInputHandlingKeys.push_back("F");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_G])
+		{
+			TextBoxInputHandlingKeys.push_back("G");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_H])
+		{
+			TextBoxInputHandlingKeys.push_back("H");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_I])
+		{
+			TextBoxInputHandlingKeys.push_back("I");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_J])
+		{
+			TextBoxInputHandlingKeys.push_back("J");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_K])
+		{
+			TextBoxInputHandlingKeys.push_back("K");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_L])
+		{
+			TextBoxInputHandlingKeys.push_back("L");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_M])
+		{
+			TextBoxInputHandlingKeys.push_back("M");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_N])
+		{
+			TextBoxInputHandlingKeys.push_back("N");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_O])
+		{
+			TextBoxInputHandlingKeys.push_back("O");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_P])
+		{
+			TextBoxInputHandlingKeys.push_back("P");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_Q])
+		{
+			TextBoxInputHandlingKeys.push_back("Q");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_R])
+		{
+			TextBoxInputHandlingKeys.push_back("R");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_S])
+		{
+			TextBoxInputHandlingKeys.push_back("S");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_T])
+		{
+			TextBoxInputHandlingKeys.push_back("T");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_U])
+		{
+			TextBoxInputHandlingKeys.push_back("U");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_V])
+		{
+			TextBoxInputHandlingKeys.push_back("V");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_W])
+		{
+			TextBoxInputHandlingKeys.push_back("W");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_X])
+		{
+			TextBoxInputHandlingKeys.push_back("X");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_Y])
+		{
+			TextBoxInputHandlingKeys.push_back("Y");
+		}
+		if (GuiPressedKey[SDL_SCANCODE_Z])
+		{
+			TextBoxInputHandlingKeys.push_back("Z");
+		}
+	}
+
+	return TextBoxInputHandlingKeys;
 }
 
 int Gui::CountingFunction()
