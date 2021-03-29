@@ -157,99 +157,6 @@ void Gui::DelGui(int GuiTokenNumber)
 	}
 }
 
-void Gui::Update()
-{
-	OldMouseXPos = MouseX;
-	OldMouseYPos = MouseY;
-
-	InputHandling();
-
-	if (SliderCreated)
-	{
-		StoreSelection = SelectionController(SliderSrcRect.w, SliderSrcRect.h, SliderSrcRect.x, SliderSrcRect.y);
-
-		if (StoreSelection)
-		{
-			if (InputHandling() == 2)
-			{
-				IsMouseD = true;
-			}
-		}
-
-		if (InputHandling() == 1)
-		{
-			IsMouseD = false;
-		}
-
-		if (IsMouseD)
-		{
-			if (MouseX != OldMouseXPos)
-			{
-				if (MouseX > OldMouseXPos)
-				{
-					SliderCounting++;
-				}
-				else if (MouseX < OldMouseXPos)
-				{
-					SliderCounting--;
-				}
-
-				SliderTextTexture = LoadText(" ", SliderCounting, " ", false, true, false, TextRect);
-			}
-		}
-	}
-
-	UpdateFileAdressTextBox();
-}
-
-void Gui::UpdateFileAdressTextBox()
-{
-	if (FileAdressTextBoxCreated)
-	{
-		if (Guiinputhandling.Update(Init::Event) != "  ")
-		{
-			//FileAdressTextBoxTextText_string.push_back(Guiinputhandling.Update());
-
-			if (GuiTypingCounter == 0 || GuiTypingCounter == MaxGuiTypingCounter)
-			{
-				FileAdressTextBoxTextText_string += Guiinputhandling.Update(Init::Event);
-				FileAdressTextBoxTextTexture = LoadText(" ", 0, FileAdressTextBoxTextText_string, false, false, true, FileAdressTextBoxSrcRect);
-				FileAdressTextBoxTextLineRect.w = 2;
-				FileAdressTextBoxTextLineRect.h = FileAdressTextBoxSrcRect.h - 10;
-				FileAdressTextBoxTextLineRect.x = (FileAdressTextBoxSrcRect.x + FileAdressTextBoxSrcRect.w) - 1;
-			}
-
-			if (GuiTypingCounter != MaxGuiTypingCounter)
-			{
-				GuiTypingCounter++;
-			}
-		}
-		else
-		{
-			GuiTypingCounter = 0;
-		}
-
-		if (FileAdressTextBoxCounter < MaxFileAdressTextBoxCounter)
-		{
-			FileAdressTextBoxCounter++;
-		}
-		else
-		{
-			if (FileAdressTextBoxTextLine)
-			{
-				FileAdressTextBoxTextLine = false;
-			}
-			else
-			{
-				FileAdressTextBoxTextLine = true;
-			}
-
-			FileAdressTextBoxCounter = 1;
-		}
-	}
-}
-
-
 std::vector<const char*> Gui::TextBoxUpdateIputHandling()
 {
 	TextBoxInputHandlingKeys.clear();
@@ -363,6 +270,98 @@ std::vector<const char*> Gui::TextBoxUpdateIputHandling()
 	}
 
 	return TextBoxInputHandlingKeys;
+}
+
+void Gui::Update()
+{
+	OldMouseXPos = MouseX;
+	OldMouseYPos = MouseY;
+
+	InputHandling();
+
+	if (SliderCreated)
+	{
+		StoreSelection = SelectionController(SliderSrcRect.w, SliderSrcRect.h, SliderSrcRect.x, SliderSrcRect.y);
+
+		if (StoreSelection)
+		{
+			if (InputHandling() == 2)
+			{
+				IsMouseD = true;
+			}
+		}
+
+		if (InputHandling() == 1)
+		{
+			IsMouseD = false;
+		}
+
+		if (IsMouseD)
+		{
+			if (MouseX != OldMouseXPos)
+			{
+				if (MouseX > OldMouseXPos)
+				{
+					SliderCounting++;
+				}
+				else if (MouseX < OldMouseXPos)
+				{
+					SliderCounting--;
+				}
+
+				SliderTextTexture = LoadText(" ", SliderCounting, " ", false, true, false, TextRect);
+			}
+		}
+	}
+
+	UpdateFileAdressTextBox();
+}
+
+void Gui::UpdateFileAdressTextBox()
+{
+	if (FileAdressTextBoxCreated)
+	{
+		if (Guiinputhandling.Update(Init::Event) != "  ")
+		{
+			//FileAdressTextBoxTextText_string.push_back(Guiinputhandling.Update());
+
+			if (GuiTypingCounter == 0 || GuiTypingCounter == MaxGuiTypingCounter)
+			{
+				FileAdressTextBoxTextText_string += Guiinputhandling.Update(Init::Event);
+				FileAdressTextBoxTextTexture = LoadText(" ", 0, FileAdressTextBoxTextText_string, false, false, true, FileAdressTextBoxSrcRect);
+				FileAdressTextBoxTextLineRect.w = 2;
+				FileAdressTextBoxTextLineRect.h = FileAdressTextBoxSrcRect.h - 10;
+				FileAdressTextBoxTextLineRect.x = (FileAdressTextBoxSrcRect.x + FileAdressTextBoxSrcRect.w) - 1;
+			}
+
+			if (GuiTypingCounter != MaxGuiTypingCounter)
+			{
+				GuiTypingCounter++;
+			}
+		}
+		else
+		{
+			GuiTypingCounter = 0;
+		}
+
+		if (FileAdressTextBoxCounter < MaxFileAdressTextBoxCounter)
+		{
+			FileAdressTextBoxCounter++;
+		}
+		else
+		{
+			if (FileAdressTextBoxTextLine)
+			{
+				FileAdressTextBoxTextLine = false;
+			}
+			else
+			{
+				FileAdressTextBoxTextLine = true;
+			}
+
+			FileAdressTextBoxCounter = 1;
+		}
+	}
 }
 
 int Gui::CountingFunction()
