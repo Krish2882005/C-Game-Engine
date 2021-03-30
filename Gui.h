@@ -21,9 +21,9 @@ public:
 	void CreateTextBox();
 	void FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color fileAdressTextBoxColor = { 137, 140, 146, 255 }, SDL_Color fileAdressTextBoxOutlineColor = { 169, 169, 169, 255 });
 	void DelGui(int GuiTokenNumber);
+	void TextBoxUpdateIputHandling();
 	void Update();
 	void UpdateFileAdressTextBox();
-	std::vector<const char*> TextBoxUpdateIputHandling();
 	int CountingFunction();
 	void Draw();
 	SDL_Texture* LoadText(const char* f_ConstCharText, int f_IntText, std::string f_StringText, bool ConstCharTextBool, bool IntTextBool, bool StringText, SDL_Rect& SrcRect);
@@ -103,12 +103,12 @@ private:
 
 	SDL_Texture* SliderTextTexture = nullptr;
 	SDL_Texture* FileAdressTextBoxTextTexture = nullptr;
-
-	bool GuiIsKeyPressed = false;
+	
 	bool GuiWaitForTyping = false;
-	int GuiTypingCounter = 0;
-	int MaxGuiTypingCounter = 30;
 
 	std::vector<const char*> TextBoxInputHandlingKeys;
 	const Uint8* GuiPressedKey = SDL_GetKeyboardState(0);
+	std::vector<const char*> RecentlyPressedKeys;
+	bool WaitForThatKey = false;
+	bool IsKeyAlreadyInRecentKeys = false;
 };
