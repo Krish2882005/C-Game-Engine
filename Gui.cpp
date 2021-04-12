@@ -165,8 +165,6 @@ void Gui::TextBoxUpdateIputHandling()
 	{
 		TextBoxInputHandlingKeys.push_back(Init::Event.text.text);
 	}
-
-	std::cout << TextBoxInputHandlingKeys.size() << std::endl;
 }
 
 void Gui::Update()
