@@ -76,12 +76,12 @@ bool Gui::SelectionController(int Width, int Height, int xPos, int yPos)
 
 void Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string Gui_Title)
 {
-	GuiTitle = Gui_Title;
+	GuiTitle = std::move( Gui_Title );
 	GuiCreated = true;
-	SrcRect.w = GuiWidth;
-	SrcRect.h = GuiHeight;
-	SrcRect.x = GuiXpos;
-	SrcRect.y = GuiYpos;
+	SrcRect.w = std::move( GuiWidth );
+	SrcRect.h = std::move( GuiHeight );
+	SrcRect.x = std::move( GuiXpos );
+	SrcRect.y = std::move( GuiYpos );
 }
 
 void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour)
@@ -90,7 +90,7 @@ void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, 
 	{
 		if (WhatToCreate == "Transform Component")
 		{
-			SliderColour = sliderColour;
+			SliderColour = std::move(sliderColour);
 
 			SliderSrcRect.x = SrcRect.x + 50;
 			SliderSrcRect.y = SrcRect.y + 50;
@@ -128,10 +128,10 @@ void Gui::CreateTextBox()
 void Gui::FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color fileAdressTextBoxColor, SDL_Color fileAdressTextBoxOutlineColor)
 {
 	FileAdressTextBoxCreated = true;
-	FileAdressTextBoxTitle = TitleOfOption;
-	FileAdressTextBoxSrcRect = fileAdressTextBoxSrcRect;
-	FileAdressTextBoxColor = fileAdressTextBoxColor;
-	FileAdressTextBoxOutlineColor = fileAdressTextBoxOutlineColor;
+	FileAdressTextBoxTitle = std::move(TitleOfOption);
+	FileAdressTextBoxSrcRect = std::move(fileAdressTextBoxSrcRect);
+	FileAdressTextBoxColor = std::move(fileAdressTextBoxColor);
+	FileAdressTextBoxOutlineColor = std::move(fileAdressTextBoxOutlineColor);
 
 	FileAdressTextBoxTextLineRect.x = FileAdressTextBoxSrcRect.x + 5;
 	FileAdressTextBoxTextLineRect.y = FileAdressTextBoxSrcRect.y + 5;
@@ -340,7 +340,7 @@ void Gui::Draw()
 	}
 }
 
-SDL_Texture* Gui::LoadText(const char* f_ConstCharText, int f_IntText, std::string f_StringText, bool ConstCharTextBool, bool IntTextBool, bool StringText, SDL_Rect& SrcRect)
+SDL_Texture* Gui::LoadText(const char* f_ConstCharText, int f_IntText, std::string f_StringText, bool ConstCharTextBool, bool IntTextBool, bool StringText, SDL_Rect& Src_Rect)
 {
 	//Return Type Is A Texture Check
 
@@ -348,7 +348,7 @@ SDL_Texture* Gui::LoadText(const char* f_ConstCharText, int f_IntText, std::stri
 	{
 		TextSurface = TTF_RenderText_Solid(CalibriFont, f_ConstCharText, TextColor);
 		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
-		SDL_QueryTexture(TextTexture, 0, 0, &SrcRect.w, &SrcRect.h);
+		SDL_QueryTexture(TextTexture, 0, 0, &Src_Rect.w, &Src_Rect.h);
 		SDL_FreeSurface(TextSurface);
 		return TextTexture;
 	}
@@ -356,7 +356,7 @@ SDL_Texture* Gui::LoadText(const char* f_ConstCharText, int f_IntText, std::stri
 	{
 		TextSurface = TTF_RenderText_Solid(CalibriFont, f_StringText.c_str(), TextColor);
 		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
-		SDL_QueryTexture(TextTexture, 0, 0, &SrcRect.w, &SrcRect.h);
+		SDL_QueryTexture(TextTexture, 0, 0, &Src_Rect.w, &Src_Rect.h);
 		SDL_FreeSurface(TextSurface);
 		return TextTexture;
 	}
@@ -366,7 +366,7 @@ SDL_Texture* Gui::LoadText(const char* f_ConstCharText, int f_IntText, std::stri
 
 		TextSurface = TTF_RenderText_Solid(CalibriFont, ConvertedFromIntToString.c_str(), TextColor);
 		TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
-		SDL_QueryTexture(TextTexture, 0, 0, &SrcRect.w, &SrcRect.h);
+		SDL_QueryTexture(TextTexture, 0, 0, &Src_Rect.w, &Src_Rect.h);
 		SDL_FreeSurface(TextSurface);
 		return TextTexture;
 	}

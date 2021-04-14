@@ -16,7 +16,7 @@ public:
 	void LoadGui();
 	int InputHandling();
 	bool SelectionController(int Width, int Height, int xPos, int yPos);
-	void CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string GuiTitle);
+	void CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string Gui_Title);
 	void CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour = { 137, 140, 146, 255 });
 	void CreateTextBox();
 	void FileAdressTextBox(SDL_Rect fileAdressTextBoxSrcRect, std::string TitleOfOption, SDL_Color fileAdressTextBoxColor = { 137, 140, 146, 255 }, SDL_Color fileAdressTextBoxOutlineColor = { 169, 169, 169, 255 });
@@ -24,10 +24,9 @@ public:
 	void TextBoxUpdateIputHandling();
 	void Update();
 	void UpdateFileAdressTextBox();
-	void UpdateTextBoxText();
 	int CountingFunction();
 	void Draw();
-	SDL_Texture* LoadText(const char* f_ConstCharText, int f_IntText, std::string f_StringText, bool ConstCharTextBool, bool IntTextBool, bool StringText, SDL_Rect& SrcRect);
+	SDL_Texture* LoadText(const char* f_ConstCharText, int f_IntText, std::string f_StringText, bool ConstCharTextBool, bool IntTextBool, bool StringText, SDL_Rect& Src_Rect);
 	void Clean();
 private:
 	int MouseX = 0;
