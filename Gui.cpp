@@ -243,13 +243,16 @@ void Gui::UpdateFileAdressTextBox()
 
 					IsKeyAlreadyInRecentKeys = false;
 
-					for (int j = 0; j < RecentlyPressedKeys.size(); j++)
+
+					//Commented For Testing Only
+					/*for (int j = 0; j < RecentlyPressedKeys.size(); j++)
 					{
 						if (TextBoxInputHandlingKeys[i] == RecentlyPressedKeys[j])
 						{
 							IsKeyAlreadyInRecentKeys = true;
 						}
 					}
+					*/
 
 					if (IsKeyAlreadyInRecentKeys == false)
 					{
