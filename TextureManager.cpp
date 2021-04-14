@@ -18,7 +18,6 @@ SDL_Texture* TextureManager::Load(const char* File)
 	Texture = SDL_CreateTextureFromSurface(Init::Renderer, Surface);
 	if (Texture == nullptr)
 	{
-		Surface = nullptr;
 		std::cout << "Texture Is A Nullptr Error: " << SDL_GetError() << std::endl;
 		return nullptr;
 	}
