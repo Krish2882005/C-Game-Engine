@@ -32,33 +32,33 @@ int Gui::InputHandling()
 {
 	switch (Init::Event.type)
 	{
-	case SDL_MOUSEMOTION:
-	{
-		MouseX = Init::Event.motion.x;
-		MouseY = Init::Event.motion.y;
-		break;
-	}
-	case SDL_MOUSEBUTTONDOWN:
-	{
-		if (Init::Event.button.button == 1)
+		case SDL_MOUSEMOTION:
 		{
-			return 2;
+			MouseX = Init::Event.motion.x;
+			MouseY = Init::Event.motion.y;
+			break;
 		}
-		break;
-	}
-	case SDL_MOUSEBUTTONUP:
-	{
-		if (Init::Event.button.button == 1)
+		case SDL_MOUSEBUTTONDOWN:
 		{
-			return 1;
+			if (Init::Event.button.button == 1)
+			{
+				return 2;
+			}
+			break;
 		}
-		break;
-	}
-	default:
-	{
-		return 0;
-		break;
-	}
+		case SDL_MOUSEBUTTONUP:
+		{
+			if (Init::Event.button.button == 1)
+			{
+				return 1;
+			}
+			break;
+		}
+		default:
+		{
+			return 0;
+			break;
+		}
 	}
 }
 
@@ -227,9 +227,9 @@ void Gui::UpdateFileAdressTextBox()
 
 		if (TextBoxInputHandlingKeys.size() != 0)
 		{
-			for (int i = 0; i < TextBoxInputHandlingKeys.size(); i++)
+			for (size_t i = 0; i < TextBoxInputHandlingKeys.size(); i++)
 			{
-				for (int j = 0; j < RecentlyPressedKeys.size(); j++)
+				for (size_t j = 0; j < RecentlyPressedKeys.size(); j++)
 				{
 					if (TextBoxInputHandlingKeys[i] == RecentlyPressedKeys[j])
 					{
@@ -240,8 +240,6 @@ void Gui::UpdateFileAdressTextBox()
 				if (WaitForThatKey == false)
 				{
 					FileAdressTextBoxTextText_string += TextBoxInputHandlingKeys[i];
-
-					IsKeyAlreadyInRecentKeys = false;
 
 
 					//Commented For Testing Only
@@ -255,11 +253,7 @@ void Gui::UpdateFileAdressTextBox()
 					*/
 
 
-					//Commented For Testing Only
-					//if (IsKeyAlreadyInRecentKeys == false)
-					//{
-						RecentlyPressedKeys.push_back(TextBoxInputHandlingKeys[i]);
-					//}
+					RecentlyPressedKeys.push_back(TextBoxInputHandlingKeys[i]);
 
 					FileAdressTextBoxTextTexture = LoadText(" ", 0, FileAdressTextBoxTextText_string, false, false, true, FileAdressTextBoxSrcRect);
 					FileAdressTextBoxTextLineRect.w = 2;
