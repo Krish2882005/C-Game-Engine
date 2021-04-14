@@ -248,6 +248,7 @@ void Gui::UpdateFileAdressTextBox()
 						if (TextBoxInputHandlingKeys[i] == RecentlyPressedKeys[j])
 						{
 							IsKeyAlreadyInRecentKeys = true;
+							break;
 						}
 					}
 
@@ -256,11 +257,8 @@ void Gui::UpdateFileAdressTextBox()
 						RecentlyPressedKeys.push_back(TextBoxInputHandlingKeys[i]);
 					}
 
-					FileAdressTextBoxTextTexture = LoadText(" ", 0, FileAdressTextBoxTextText_string, false, false, true, FileAdressTextBoxSrcRect);
-					FileAdressTextBoxTextLineRect.w = 2;
-					FileAdressTextBoxTextLineRect.h = FileAdressTextBoxSrcRect.h - 10;
-					FileAdressTextBoxTextLineRect.x = (FileAdressTextBoxSrcRect.x + FileAdressTextBoxSrcRect.w) - 1;
-					WaitForThatKey = false;
+					UpdateTextBoxText();
+
 				}
 			}
 		}
@@ -283,6 +281,15 @@ void Gui::UpdateFileAdressTextBox()
 			FileAdressTextBoxCounter = 1;
 		}
 	}
+}
+
+void Gui::UpdateTextBoxText()
+{
+	FileAdressTextBoxTextTexture = LoadText(" ", 0, FileAdressTextBoxTextText_string, false, false, true, FileAdressTextBoxSrcRect);
+	FileAdressTextBoxTextLineRect.w = 2;
+	FileAdressTextBoxTextLineRect.h = FileAdressTextBoxSrcRect.h - 10;
+	FileAdressTextBoxTextLineRect.x = (FileAdressTextBoxSrcRect.x + FileAdressTextBoxSrcRect.w) - 1;
+	WaitForThatKey = false;
 }
 
 int Gui::CountingFunction()

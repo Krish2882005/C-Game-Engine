@@ -1,12 +1,11 @@
 #pragma once
 #include <vector>
 
-
-/*class Vector2
+class Vector2
 {
 	public:
-		static void SetPosition(long double xPos, long double yPos);
-		static long double GetPlayerXPosition();
-		static long double GetPlayerYPosition();
+		int X = 0;
+		int Y = 0;
+	private:
+
 };
-*/

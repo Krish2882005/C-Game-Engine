@@ -24,6 +24,7 @@ public:
 	void TextBoxUpdateIputHandling();
 	void Update();
 	void UpdateFileAdressTextBox();
+	void UpdateTextBoxText();
 	int CountingFunction();
 	void Draw();
 	SDL_Texture* LoadText(const char* f_ConstCharText, int f_IntText, std::string f_StringText, bool ConstCharTextBool, bool IntTextBool, bool StringText, SDL_Rect& SrcRect);

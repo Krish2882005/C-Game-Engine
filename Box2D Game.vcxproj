@@ -161,6 +161,7 @@
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="InputHandling.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Maths.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RenderText.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Init.h" />
     <ClInclude Include="InputHandling.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Maths.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RenderText.h" />
     <ClInclude Include="TextureManager.h" />
