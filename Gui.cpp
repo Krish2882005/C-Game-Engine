@@ -254,10 +254,12 @@ void Gui::UpdateFileAdressTextBox()
 					}
 					*/
 
-					if (IsKeyAlreadyInRecentKeys == false)
-					{
+
+					//Commented For Testing Only
+					//if (IsKeyAlreadyInRecentKeys == false)
+					//{
 						RecentlyPressedKeys.push_back(TextBoxInputHandlingKeys[i]);
-					}
+					//}
 
 					FileAdressTextBoxTextTexture = LoadText(" ", 0, FileAdressTextBoxTextText_string, false, false, true, FileAdressTextBoxSrcRect);
 					FileAdressTextBoxTextLineRect.w = 2;
