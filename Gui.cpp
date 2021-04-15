@@ -5,9 +5,6 @@
 #include <iostream>
 #include "Init.h"
 #include "RenderText.h"
-#include "InputHandling.h"
-
-InputHandling Guiinputhandling;
 
 void Gui::InitGui()
 {
@@ -25,41 +22,42 @@ void Gui::InitGui()
 void Gui::LoadGui()
 {
 	CalibriFont = TTF_OpenFont("Fonts/Calibri.ttf", 30);
-	TextColor = { 255, 255, 255 };
+	TextColor = { 255, 255, 255, 255 };
 }
 
 int Gui::InputHandling()
 {
 	switch (Init::Event.type)
 	{
-		case SDL_MOUSEMOTION:
-		{
-			MouseX = Init::Event.motion.x;
-			MouseY = Init::Event.motion.y;
-			break;
-		}
-		case SDL_MOUSEBUTTONDOWN:
-		{
-			if (Init::Event.button.button == 1)
-			{
-				return 2;
-			}
-			break;
-		}
-		case SDL_MOUSEBUTTONUP:
-		{
-			if (Init::Event.button.button == 1)
-			{
-				return 1;
-			}
-			break;
-		}
-		default:
-		{
-			return 0;
-			break;
-		}
+	case SDL_MOUSEMOTION:
+	{
+		MouseX = Init::Event.motion.x;
+		MouseY = Init::Event.motion.y;
+		break;
 	}
+	case SDL_MOUSEBUTTONDOWN:
+	{
+		if (Init::Event.button.button == 1)
+		{
+			return 2;
+		}
+		break;
+	}
+	case SDL_MOUSEBUTTONUP:
+	{
+		if (Init::Event.button.button == 1)
+		{
+			return 1;
+		}
+		break;
+	}
+	default:
+	{
+		break;
+	}
+	}
+
+	return 0;
 }
 
 bool Gui::SelectionController(int Width, int Height, int xPos, int yPos)
@@ -76,12 +74,12 @@ bool Gui::SelectionController(int Width, int Height, int xPos, int yPos)
 
 void Gui::CreateGuiMenu(std::string GuiType, bool AutoGui, int GuiWidth, int GuiHeight, int GuiXpos, int GuiYpos, std::string Gui_Title)
 {
-	GuiTitle = std::move( Gui_Title );
+	GuiTitle = std::move(Gui_Title);
 	GuiCreated = true;
-	SrcRect.w = std::move( GuiWidth );
-	SrcRect.h = std::move( GuiHeight );
-	SrcRect.x = std::move( GuiXpos );
-	SrcRect.y = std::move( GuiYpos );
+	SrcRect.w = std::move(GuiWidth);
+	SrcRect.h = std::move(GuiHeight);
+	SrcRect.x = std::move(GuiXpos);
+	SrcRect.y = std::move(GuiYpos);
 }
 
 void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, int SliderMaxValue, int SliderCurrentValue, SDL_Color sliderColour)
