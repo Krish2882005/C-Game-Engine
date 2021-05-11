@@ -111,4 +111,26 @@ private:
 	std::vector<const char*> RecentlyPressedKeys;
 	bool WaitForThatKey = false;
 	bool IsKeyAlreadyInRecentKeys = false;
+
+
+
+
+	// Yet To Be Integerated
+	//Pre Made Components
+
+	bool TransformComponentCreated = false;
+
+	std::string TransformComponentTitle = "Transform";
+	std::string TransformComponentPosition = "Position";
+	std::string TransformComponentRotation = "Rotation";
+	std::string TransformComponentScale = "Scale";
+
+	int TransformComponentPositionxPos = 0;
+	int TransformComponentPositionyPos = 0;
+	int TransformComponentRotationxPos = 0;
+	int TransformComponentRotationyPos = 0;
+	float TransformComponentScalexPos = 0;
+	float TransformComponentScaleyPos = 0;
+
+	SDL_Rect TransformComponentTitleRect;
 };

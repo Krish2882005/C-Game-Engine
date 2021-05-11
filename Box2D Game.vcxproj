@@ -24,6 +24,7 @@
     <ProjectGuid>{017dbd36-ea28-43b9-9ba0-47b3119e888c}</ProjectGuid>
     <RootNamespace>Box2DGame</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Beast Engine</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

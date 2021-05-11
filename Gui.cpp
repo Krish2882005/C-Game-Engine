@@ -104,6 +104,10 @@ void Gui::CreateGuiOptions(std::string WhatToCreate, std::string TitleOfOption, 
 
 			SliderCreated = true;
 		}
+		else if (WhatToCreate == "Pre Made Transform Component")
+		{
+			TransformComponentCreated = true;
+		}
 	}
 	else
 	{
