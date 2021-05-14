@@ -8,6 +8,7 @@
 #include "Gui.h"
 #include "RenderText.h"
 #include "InputHandling.h"
+#include "Logger.h"
 
 constexpr int ScreenWidth = 1080;
 constexpr int ScreenHeight = 720;
@@ -18,6 +19,7 @@ InputHandling inputhandling;
 Gui gui;
 Gui gui1;
 //RenderText rendertext;
+Logger* logger = new Logger();
 
 SDL_Renderer* Init::Renderer = nullptr;
 
@@ -66,6 +68,10 @@ void Init::Init_SDL2()
 	gui.InitGui();
 	gui1.InitGui();
 	//rendertext.Init();
+
+	logger->Init();
+
+	logger->LogMessage("Info", "Beast Engine Has Started");
 }
 
 void Init::Load()
@@ -80,6 +86,8 @@ void Init::Load()
 	gui1.LoadGui();
 	gui1.CreateGuiMenu("Menu", true, 500, 500, 500, 500, "TestGui");
 	gui1.CreateGuiOptions("Transform Component", "Hello", 100, 0, { 79, 222, 33 });
+
+	logger->LogMessage("Info", "Beast Engine Has Loaded Files And Other Tasks Are Succesfully Completed");
 }
 
 void Init::Events()
@@ -119,6 +127,7 @@ void Init::Clean()
 	//player.Clean();
 	//map.Clean();
 	//rendertext.Clean();
+	delete logger;
 	gui.Clean();
 	gui1.Clean();
 	TTF_Quit();
