@@ -16,9 +16,8 @@ constexpr int ScreenHeight = 720;
 InputHandling inputhandling;
 //Player player;
 //Map map;
-Gui gui;
-Gui gui1;
 //RenderText rendertext;
+Gui gui;
 Logger* logger = new Logger();
 
 SDL_Renderer* Init::Renderer = nullptr;
@@ -27,12 +26,17 @@ SDL_Event Init::Event;
 
 void Init::Init_SDL2()
 {
+	logger->Init();
+
+	logger->LogMessage("Info", "Starting Beast Engine");
+	logger->LogMessage("Info", "Initializing Subsystems And Other Tasks");
+
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
 		if (SDL_Init(IMG_INIT_PNG) != 0)
 		{
 			m_IsRunning = false;
-			std::cout << "SDL_image Cannot Init" << std::endl;
+			logger->LogMessage("Error", SDL_GetError());
 			return;
 		}
 
@@ -40,8 +44,8 @@ void Init::Init_SDL2()
 
 		if (Window == nullptr)
 		{
-			std::cout << "window Is A Nullptr" << std::endl;
 			m_IsRunning = false;
+			logger->LogMessage("Error", SDL_GetError());
 			return;
 		}
 
@@ -49,7 +53,7 @@ void Init::Init_SDL2()
 
 		if (Renderer == nullptr)
 		{
-			std::cout << "renderer Is A Nullptr" << std::endl;
+			logger->LogMessage("Error", SDL_GetError());
 			m_IsRunning = false;
 			return;
 		}
@@ -59,35 +63,43 @@ void Init::Init_SDL2()
 	else
 	{
 		m_IsRunning = false;
-		std::cout << "SDL2 Cannot Init" << std::endl;
+		logger->LogMessage("Error", SDL_GetError());
 		return;
 	}
 
 	//map.Init();
 	//player.Init();
-	gui.InitGui();
-	gui1.InitGui();
 	//rendertext.Init();
 
-	logger->Init();
-
-	logger->LogMessage("Info", "Beast Engine Has Started");
+	logger->LogMessage("Info", "Beast Engine Has Successfully Initialized And Other Tasks Are Completed");
 }
 
 void Init::Load()
 {
+	logger->LogMessage("Info", "Loading Files And Other Tasks");
+
 	//player.Load();
 	//map.Load();
 	//rendertext.Load();
-	gui.LoadGui();
-	gui.CreateGuiMenu("Menu", true, 200, 200, 100, 100, "TestGui");
-	gui.CreateGuiOptions("Transform Component", "Hello", 100, 0, { 79, 222, 33 });
-	gui.FileAdressTextBox({ 300, 300, 50, 50 }, "TextBox");
-	gui1.LoadGui();
-	gui1.CreateGuiMenu("Menu", true, 500, 500, 500, 500, "TestGui");
-	gui1.CreateGuiOptions("Transform Component", "Hello", 100, 0, { 79, 222, 33 });
+
+	logger->LogMessage("Info", "Loading GUI");
+
+	Vector2 Position;
+	Position.X = 100;
+	Position.Y = 100;
+	
+	Vector2 Position2;
+	Position2.X = 200;
+	Position2.Y = 200;
+
+	gui.SubGui("File Importer", Position);
+	gui.SubGui("File Importer", Position2);
+
+	logger->LogMessage("Info", "Successfully Loaded GUI");
 
 	logger->LogMessage("Info", "Beast Engine Has Loaded Files And Other Tasks Are Succesfully Completed");
+
+	logger->LogMessage("Info", "Beast Engine Has Started");
 }
 
 void Init::Events()
@@ -106,8 +118,6 @@ void Init::Events()
 void Init::Update()
 {
 	//player.Update();
-	gui.Update();
-	gui1.Update();
 	//rendertext.Update();
 }
 
@@ -116,9 +126,9 @@ void Init::Draw()
 	SDL_RenderClear(Renderer);
 	//map.Draw();
 	//player.Draw();
-	gui1.Draw();
-	gui.Draw();
 	//rendertext.Draw();
+
+	gui.Draw();
 	SDL_RenderPresent(Renderer);
 }
 
@@ -127,10 +137,11 @@ void Init::Clean()
 	//player.Clean();
 	//map.Clean();
 	//rendertext.Clean();
-	delete logger;
-	gui.Clean();
-	gui1.Clean();
 	TTF_Quit();
 	SDL_DestroyWindow(Window);
 	SDL_DestroyRenderer(Renderer);
+
+	logger->LogMessage("Info", "Beast Engine Is Clean");
+
+	delete logger;
 }
