@@ -26,16 +26,17 @@ void Gui::Events()
 	}
 }
 
-void Gui::SubGui(const char* GuiType, Vector2 SubTypePosition)
+void Gui::SubGui(const char* GuiType, const Vector2 &SubTypePosition)
 {
-	if (GuiType != "")
+	if (strcmp(GuiType, "") != 0)
 	{
-		//File Importer Background 1 Start
 		SDL_Rect FileImporterSrcRect;
 		SDL_Rect FileImporterOutlineSrcRect;
 		SDL_Rect FileImporterOutlineFillSrcRect;
 
 		NumberOfGuis++;
+
+		//File Importer Background 1 Start
 
 		FileImporterSrcRect.x = SubTypePosition.X;
 		FileImporterSrcRect.y = SubTypePosition.Y;
@@ -98,13 +99,15 @@ void Gui::Map()
 
 void Gui::Draw()
 {
-	for (unsigned int i = 0; i < Guis.size(); i++)
+	for (size_t i = 0; i < Guis.size(); i++)
 	{
-		for (unsigned int j = 0; j < Guis[i].GuiRect.size(); j++)
+		for (size_t j = 0; j < Guis[i].GuiRect.size(); j++)
 		{
-			if (Guis[i].GuiType == "File Importer")
+			if (strcmp(Guis[i].GuiType, "File Importer") == 0)
 			{
-				SDL_SetRenderDrawColor(Init::Renderer, Guis[i].ColourCode[j].r, Guis[i].ColourCode[j].g, Guis[i].ColourCode[j].b, Guis[i].ColourCode[j].a);
+				GuiColourReference = Guis[i].ColourCode[j];
+
+				SDL_SetRenderDrawColor(Init::Renderer, GuiColourReference.r, GuiColourReference.g, GuiColourReference.b, GuiColourReference.a);
 				SDL_RenderDrawRect(Init::Renderer, &Guis[i].GuiRect[j]);
 
 				if (Guis[i].Fill[j])

@@ -23,7 +23,7 @@ public:
 	void Load();
 	void Events();
 
-	void SubGui(const char* GuiType, Vector2 SubTypePosition);
+	void SubGui(const char* GuiType, const Vector2& SubTypePosition);
 
 	void Map();
 
@@ -39,6 +39,10 @@ private:
 	const int FileImporterWidth = 200;
 	const int FileImporterHeight = 50;
 	std::vector<const char*> TypedKeys;
+	//
+
+	//For Reference In Draw Functions
+	SDL_Colour GuiColourReference;
 	//
 
 	Vector2 MousePos;
