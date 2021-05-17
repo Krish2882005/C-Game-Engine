@@ -24,27 +24,28 @@ void Logger::Init()
 
 void Logger::LogMessage(const char* LogLevel, const char* Message)
 {
-	if (LogLevel == "Trace")
+	
+	if (strcmp(LogLevel, "Trace"))
 	{
 		BOOST_LOG_SEV(lg, boost::log::trivial::trace) << Message;
 	}
-	else if (LogLevel == "Debug")
+	else if (strcmp(LogLevel, "Debug"))
 	{
 		BOOST_LOG_SEV(lg, boost::log::trivial::debug) << Message;
 	}
-	else if (LogLevel == "Info")
+	else if (strcmp(LogLevel, "Info"))
 	{
 		BOOST_LOG_SEV(lg, boost::log::trivial::info) << Message;
 	}
-	else if (LogLevel == "Warning")
+	else if (strcmp(LogLevel, "Warning"))
 	{
 		BOOST_LOG_SEV(lg, boost::log::trivial::warning) << Message;
 	}
-	else if (LogLevel == "Error")
+	else if (strcmp(LogLevel, "Error"))
 	{
 		BOOST_LOG_SEV(lg, boost::log::trivial::error) << Message;
 	}
-	else if (LogLevel == "Fatal")
+	else if (strcmp(LogLevel, "Fatal"))
 	{
 		BOOST_LOG_SEV(lg, boost::log::trivial::fatal) << Message;
 	}
