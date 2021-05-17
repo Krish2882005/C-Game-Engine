@@ -93,8 +93,7 @@ void Init::Load()
 	Position2.Y = 200;
 
 	gui.SubGui("File Importer", Position);
-	gui.SubGui("File Importer", Position2);
-
+	
 	logger->LogMessage("Info", "Successfully Loaded GUI");
 
 	logger->LogMessage("Info", "Beast Engine Has Loaded Files And Other Tasks Are Succesfully Completed");
@@ -113,6 +112,7 @@ void Init::Events()
 
 	inputhandling.Update(Event);
 	//player.Events();
+	gui.Events();
 }
 
 void Init::Update()

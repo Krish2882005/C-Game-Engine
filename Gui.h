@@ -11,7 +11,9 @@ struct GuiProperties
 {
 	int GuiNumber;
 	const char* GuiType;
-	SDL_Rect GuiRect;
+	std::vector<bool> Fill;
+	std::vector<SDL_Rect> GuiRect;
+	std::vector<SDL_Colour> ColourCode;
 };
 
 class Gui
@@ -29,8 +31,17 @@ public:
 	void Update();
 	void Clean();
 private:
+	//To Be Used By Gui Tools
+	std::vector<bool> M_Fill;
+	std::vector<SDL_Rect> M_GuiSrcRect;
+	std::vector<SDL_Colour> M_ColourCode;
+	SDL_Colour GuiColour;
+	const int FileImporterWidth = 200;
+	const int FileImporterHeight = 50;
+	std::vector<const char*> TypedKeys;
+	//
+
 	Vector2 MousePos;
-	SDL_Rect FileImporterSrcRect;
 	std::vector<GuiProperties> Guis;
 	int NumberOfGuis = 0;
 };
