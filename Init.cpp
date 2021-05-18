@@ -16,7 +16,6 @@ constexpr int ScreenHeight = 720;
 InputHandling inputhandling;
 //Player player;
 //Map map;
-//RenderText rendertext;
 Gui gui;
 Logger* logger = new Logger();
 
@@ -37,6 +36,13 @@ void Init::Init_SDL2()
 		{
 			m_IsRunning = false;
 			logger->LogMessage("Error", SDL_GetError());
+			return;
+		}
+
+		if (RenderText::Init() != 0)
+		{
+			logger->LogMessage("Error", "Error: SDL_ttf Cannot Init");
+			m_IsRunning = false;
 			return;
 		}
 
@@ -69,7 +75,6 @@ void Init::Init_SDL2()
 
 	//map.Init();
 	//player.Init();
-	//rendertext.Init();
 
 	logger->LogMessage("Info", "Beast Engine Has Successfully Initialized And Other Tasks Are Completed");
 }
@@ -80,7 +85,7 @@ void Init::Load()
 
 	//player.Load();
 	//map.Load();
-	//rendertext.Load();
+	RenderText::Load();
 
 	logger->LogMessage("Info", "Loading GUI");
 
@@ -137,7 +142,7 @@ void Init::Clean()
 	//player.Clean();
 	//map.Clean();
 	//rendertext.Clean();
-	TTF_Quit();
+	RenderText::Clean();
 	SDL_DestroyWindow(Window);
 	SDL_DestroyRenderer(Renderer);
 

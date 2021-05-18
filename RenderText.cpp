@@ -2,100 +2,54 @@
 #include <string>
 #include "RenderText.h"
 #include "Init.h"
+#include "Logger.h"
 
 
-void RenderText::Init()
-{
+TTF_Font* CalibriFont = nullptr;
+SDL_Colour TextColour;
+SDL_Surface* TextSurface = nullptr;
+SDL_Texture* TextTexture = nullptr;
 
-}
-
-void RenderText::Draw()
-{
-
-}
-
-void RenderText::Clean()
-{
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-void RenderText::Init()
+int RenderText::Init()
 {
 	if (TTF_Init() != 0)
 	{
-		std::cout << "Error: SDL_ttf Cannot Init" << std::endl;
-		return;
+		return 1;
 	}
 	else
 	{
-		CalibriFont = TTF_OpenFont("Fonts/Calibri.ttf", 20);
-		TextColor = { 255, 255, 255 };
+		return 0;
 	}
 }
 
-void RenderText::LoadText(SDL_Rect f_TextRect, const char* f_ConstCharText, int f_IntText, bool ConstCharTextBool, bool IntTextBool)
+void RenderText::Load()
 {
-	
+	CalibriFont = TTF_OpenFont("Fonts/Calibri.ttf", 20);
+	TextColour.r = 255;
+	TextColour.g = 255;
+	TextColour.b = 255;
+	TextColour.a = 255;
 }
 
-void RenderText::Update()
+SDL_Texture* RenderText::LoadText(const char* Text, SDL_Rect TextRect)
 {
+	TextSurface = TTF_RenderText_Solid(CalibriFont, Text, TextColour);
+	TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
+	SDL_QueryTexture(TextTexture, nullptr, nullptr, &TextRect.w, &TextRect.h);
+	SDL_FreeSurface(TextSurface);
 
+	return TextTexture;
 }
 
-void RenderText::Draw()
+void RenderText::Draw(SDL_Texture* Texture, SDL_Rect TextRect)
 {
-	SDL_RenderCopy(Init::Renderer, TextTexture, 0, &TextRect);
+	SDL_RenderCopy(Init::Renderer, Texture, 0, &TextRect);
 }
 
 void RenderText::Clean()
 {
+	TTF_CloseFont(CalibriFont);
 	SDL_DestroyTexture(TextTexture);
+	TTF_Quit();
 }
-*/
+

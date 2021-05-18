@@ -6,9 +6,11 @@
 class RenderText
 {
 	public:
-		void Init();
-		void Draw();
-		void Clean();
+		static int Init();
+		static void Load();
+		static SDL_Texture* LoadText(const char* Text, SDL_Rect TextRect);
+		static void Draw(SDL_Texture* Texture, SDL_Rect TextRect);
+		static void Clean();
 	private:
 		
 };
