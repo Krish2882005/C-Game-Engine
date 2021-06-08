@@ -9,28 +9,28 @@ bool InputHandling::IsKeyDown(const char* Key)
 		{
 			if (PressedKey[SDL_SCANCODE_A])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "b" || Key == "B")
 		{
 			if (PressedKey[SDL_SCANCODE_B])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "c" || Key == "C")
 		{
 			if (PressedKey[SDL_SCANCODE_C])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "d" || Key == "D")
 		{
 			if (PressedKey[SDL_SCANCODE_D])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "e" || Key == "E")
@@ -44,140 +44,140 @@ bool InputHandling::IsKeyDown(const char* Key)
 		{
 			if (PressedKey[SDL_SCANCODE_F])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "g" || Key == "G")
 		{
 			if (PressedKey[SDL_SCANCODE_G])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "h" || Key == "H")
 		{
 			if (PressedKey[SDL_SCANCODE_H])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "i" || Key == "I")
 		{
 			if (PressedKey[SDL_SCANCODE_I])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "j" || Key == "J")
 		{
 			if (PressedKey[SDL_SCANCODE_J])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "k" || Key == "K")
 		{
 			if (PressedKey[SDL_SCANCODE_K])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "l" || Key == "L")
 		{
 			if (PressedKey[SDL_SCANCODE_L])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "m" || Key == "M")
 		{
 			if (PressedKey[SDL_SCANCODE_M])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "n" || Key == "N")
 		{
 			if (PressedKey[SDL_SCANCODE_N])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "o" || Key == "O")
 		{
 			if (PressedKey[SDL_SCANCODE_O])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "p" || Key == "P")
 		{
 			if (PressedKey[SDL_SCANCODE_A])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "q" || Key == "Q")
 		{
 			if (PressedKey[SDL_SCANCODE_Q])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "r" || Key == "R")
 		{
 			if (PressedKey[SDL_SCANCODE_R])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "s" || Key == "S")
 		{
 			if (PressedKey[SDL_SCANCODE_S])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "t" || Key == "T")
 		{
 			if (PressedKey[SDL_SCANCODE_T])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "u" || Key == "U")
 		{
 			if (PressedKey[SDL_SCANCODE_U])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "v" || Key == "V")
 		{
 			if (PressedKey[SDL_SCANCODE_V])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "x" || Key == "X")
 		{
 			if (PressedKey[SDL_SCANCODE_X])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "y" || Key == "Y")
 		{
 			if (PressedKey[SDL_SCANCODE_Y])
 			{
-				true;
+				return true;
 			}
 		}
 		if (Key == "z" || Key == "Z")
 		{
 			if (PressedKey[SDL_SCANCODE_Z])
 			{
-				true;
+				return true;
 			}
 		}
 	}
