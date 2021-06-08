@@ -1,13 +1,7 @@
 #include "InputHandling.h"
 #include "Init.h"
 
-//if (f_event.type == SDL_KEYDOWN)
-	//{
-//
-	//}
-//if(PressedKey[SDL_KeyCode])
-
-bool BeastEngine::InputHandling::IsKeyDown(const char* Key)
+bool InputHandling::IsKeyDown(const char* Key)
 {
 	if (Init::Event.type == SDL_KEYDOWN)
 	{
@@ -185,8 +179,18 @@ bool BeastEngine::InputHandling::IsKeyDown(const char* Key)
 			{
 				true;
 			}
-		}		
+		}
 	}
 
 	return false;
+}
+
+char* InputHandling::GetTextInput()
+{
+	if (Init::Event.type == SDL_TEXTINPUT)
+	{
+		return Init::Event.text.text;
+	}
+
+	return 0;
 }

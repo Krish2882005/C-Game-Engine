@@ -5,6 +5,9 @@
 #include <iostream>
 #include "Init.h"
 #include "RenderText.h"
+#include "InputHandling.h"
+
+InputHandling guiinputhandling;
 
 void Gui::Init()
 {
@@ -22,7 +25,7 @@ void Gui::Events()
 
 	if (Init::Event.type == SDL_TEXTINPUT)
 	{
-		TypedKeys.push_back(Init::Event.text.text);
+		TypedKeys.push_back(guiinputhandling.GetTextInput());
 	}
 }
 
