@@ -24,7 +24,7 @@ int RenderText::Init()
 
 void RenderText::Load()
 {
-	CalibriFont = TTF_OpenFont("Fonts/Calibri.ttf", 20);
+	CalibriFont = TTF_OpenFont("Fonts/Calibri.ttf", 82);
 	TextColour.r = 255;
 	TextColour.g = 255;
 	TextColour.b = 255;
@@ -33,7 +33,7 @@ void RenderText::Load()
 
 SDL_Texture* RenderText::LoadText(const char* Text, SDL_Rect TextRect)
 {
-	TextSurface = TTF_RenderText_Solid(CalibriFont, Text, TextColour);
+	TextSurface = TTF_RenderText_Blended(CalibriFont, Text, TextColour);
 	TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
 	SDL_QueryTexture(TextTexture, nullptr, nullptr, &TextRect.w, &TextRect.h);
 	SDL_FreeSurface(TextSurface);

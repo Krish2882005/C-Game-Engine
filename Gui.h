@@ -16,6 +16,15 @@ struct GuiProperties
 	std::vector<SDL_Colour> ColourCode;
 };
 
+struct GuiTextProperties
+{
+	int GuiNumber;
+	const char* GuiType;
+	std::vector<SDL_Rect> GuiRect;
+	std::vector<SDL_Colour> ColourCode;
+	std::vector<SDL_Texture*> GuiTextTexture;
+};
+
 class Gui
 {
 public:
@@ -35,6 +44,13 @@ private:
 	std::vector<bool> M_Fill;
 	std::vector<SDL_Rect> M_GuiSrcRect;
 	std::vector<SDL_Colour> M_ColourCode;
+
+	//For Gui Texts
+	std::vector<SDL_Rect> M_GuiTextSrcRect;
+	std::vector<SDL_Colour> M_TextColourCode;
+	std::vector<SDL_Texture*> M_GuiTextTexture;
+
+	//
 	SDL_Colour GuiColour;
 	const int FileImporterWidth = 200;
 	const int FileImporterHeight = 50;
@@ -47,6 +63,7 @@ private:
 
 	Vector2 MousePos;
 	std::vector<GuiProperties> Guis;
+	std::vector<GuiTextProperties> GuiTexts;
 	int NumberOfGuis = 0;
 };
 

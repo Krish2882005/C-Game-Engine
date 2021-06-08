@@ -26,13 +26,16 @@ void Gui::Events()
 	}
 }
 
-void Gui::SubGui(const char* GuiType, const Vector2 &SubTypePosition)
+void Gui::SubGui(const char* GuiType, const Vector2& SubTypePosition)
 {
 	if (strcmp(GuiType, "") != 0)
 	{
 		SDL_Rect FileImporterSrcRect;
 		SDL_Rect FileImporterOutlineSrcRect;
 		SDL_Rect FileImporterOutlineFillSrcRect;
+		SDL_Rect FileImporterTextSrcRect;
+
+		SDL_Texture* FileImporterTextTexture = nullptr;
 
 		NumberOfGuis++;
 
@@ -89,6 +92,24 @@ void Gui::SubGui(const char* GuiType, const Vector2 &SubTypePosition)
 		//Outline For Text Importer 3 End
 
 		Guis.push_back(GuiProperties{ NumberOfGuis, GuiType, M_Fill, M_GuiSrcRect, M_ColourCode });
+
+		GuiColour.r = 255;
+		GuiColour.g = 255;
+		GuiColour.b = 255;
+		GuiColour.a = 255;
+
+		FileImporterTextSrcRect.x = FileImporterSrcRect.x + 10;
+		FileImporterTextSrcRect.y = FileImporterSrcRect.y + 10;
+		FileImporterTextSrcRect.w = (FileImporterSrcRect.w / 4) - 10;
+		FileImporterTextSrcRect.h = FileImporterSrcRect.h - 20;
+
+		FileImporterTextTexture = RenderText::LoadText("File:", FileImporterTextSrcRect);
+
+		M_GuiTextSrcRect.push_back(FileImporterTextSrcRect);
+		M_TextColourCode.push_back(GuiColour);
+		M_GuiTextTexture.push_back(FileImporterTextTexture);
+
+		GuiTexts.push_back(GuiTextProperties{ NumberOfGuis, GuiType, M_GuiTextSrcRect, M_TextColourCode, M_GuiTextTexture });
 	}
 }
 
@@ -117,6 +138,16 @@ void Gui::Draw()
 
 				SDL_SetRenderDrawColor(Init::Renderer, 0, 0, 0, 255);
 			}
+		}
+	}
+
+	for (size_t i = 0; i < GuiTexts.size(); i++)
+	{
+		for (size_t j = 0; j < GuiTexts[i].GuiTextTexture.size(); j++)
+		{
+			GuiColourReference = Guis[i].ColourCode[j];
+
+			RenderText::Draw(GuiTexts[i].GuiTextTexture[j], GuiTexts[i].GuiRect[j]);
 		}
 	}
 }

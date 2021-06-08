@@ -115,7 +115,6 @@ void Init::Events()
 		m_IsRunning = false;
 	}
 
-	inputhandling.Update(Event);
 	//player.Events();
 	gui.Events();
 }
@@ -141,7 +140,6 @@ void Init::Clean()
 {
 	//player.Clean();
 	//map.Clean();
-	//rendertext.Clean();
 	RenderText::Clean();
 	SDL_DestroyWindow(Window);
 	SDL_DestroyRenderer(Renderer);

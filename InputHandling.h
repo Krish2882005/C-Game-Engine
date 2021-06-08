@@ -4,11 +4,7 @@
 class InputHandling
 {
 	public:
-		const char* Update(SDL_Event f_event);
-		bool Up = false;
-		bool Down = false;
-		bool Right = false;
-		bool Left = false;
+		bool IsKeyDown(const char* Key);
 	private:
 		const Uint8* PressedKey = SDL_GetKeyboardState(0);
 };
