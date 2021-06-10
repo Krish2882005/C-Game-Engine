@@ -9,6 +9,7 @@
 #include "RenderText.h"
 #include "InputHandling.h"
 #include "Logger.h"
+#include "Vector2.h"
 
 constexpr int ScreenWidth = 1080;
 constexpr int ScreenHeight = 720;
@@ -97,7 +98,7 @@ void Init::Load()
 	Position2.X = 200;
 	Position2.Y = 200;
 
-	gui.SubGui("File Importer", Position);
+	//gui.SubGui("File Importer", Position);
 	
 	logger->LogMessage("Info", "Successfully Loaded GUI");
 
@@ -116,7 +117,7 @@ void Init::Events()
 	}
 
 	//player.Events();
-	gui.Events();
+	//gui.Events();
 }
 
 void Init::Update()

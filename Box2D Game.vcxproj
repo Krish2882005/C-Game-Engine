@@ -159,6 +159,7 @@
     <ClCompile Include="Box2D Game.cpp" />
     <ClCompile Include="CollisionDetection.cpp" />
     <ClCompile Include="Gui.cpp" />
+    <ClCompile Include="Gui_Old.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="InputHandling.cpp" />
     <ClCompile Include="Logger.cpp" />
@@ -172,6 +173,7 @@
   <ItemGroup>
     <ClInclude Include="CollisionDetection.h" />
     <ClInclude Include="Gui.h" />
+    <ClInclude Include="Gui_Old.h" />
     <ClInclude Include="Init.h" />
     <ClInclude Include="InputHandling.h" />
     <ClInclude Include="Logger.h" />

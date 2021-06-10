@@ -159,6 +159,13 @@ bool InputHandling::IsKeyDown(const char* Key)
 				return true;
 			}
 		}
+		if (Key == "w" || Key == "W")
+		{
+			if (PressedKey[SDL_SCANCODE_X])
+			{
+				return true;
+			}
+		}
 		if (Key == "x" || Key == "X")
 		{
 			if (PressedKey[SDL_SCANCODE_X])
