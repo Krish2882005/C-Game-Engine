@@ -1,11 +1,12 @@
 // This is a personal academic project. Dear PVS-Studio, please check it.
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
 
+//This Is A Beast Engine File Which Has The License Apache 2.0
+
 #include "Init.h"
 #include <iostream>
-#include "Player.h"
 #include "Map.h"
-#include "Gui.h"
+#include "Renderer2D.h"
 #include "RenderText.h"
 #include "InputHandling.h"
 #include "Logger.h"
@@ -17,7 +18,6 @@ constexpr int ScreenHeight = 720;
 InputHandling inputhandling;
 //Player player;
 //Map map;
-Gui gui;
 Logger* logger = new Logger();
 
 SDL_Renderer* Init::Renderer = nullptr;
@@ -33,7 +33,7 @@ void Init::Init_SDL2()
 
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		if (SDL_Init(IMG_INIT_PNG) != 0)
+		if (Renderer2D::Init() != 0)
 		{
 			m_IsRunning = false;
 			logger->LogMessage("Error", SDL_GetError());
@@ -93,13 +93,13 @@ void Init::Load()
 	Vector2 Position;
 	Position.X = 100;
 	Position.Y = 100;
-	
+
 	Vector2 Position2;
 	Position2.X = 200;
 	Position2.Y = 200;
 
 	//gui.SubGui("File Importer", Position);
-	
+
 	logger->LogMessage("Info", "Successfully Loaded GUI");
 
 	logger->LogMessage("Info", "Beast Engine Has Loaded Files And Other Tasks Are Succesfully Completed");
@@ -132,8 +132,6 @@ void Init::Draw()
 	//map.Draw();
 	//player.Draw();
 	//rendertext.Draw();
-
-	gui.Draw();
 	SDL_RenderPresent(Renderer);
 }
 

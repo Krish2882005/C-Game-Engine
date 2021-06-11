@@ -1,3 +1,5 @@
+//This Is A Beast Engine File Which Has The License Apache 2.0
+
 #include "Logger.h"
 #include <boost/log/trivial.hpp>
 #include <boost/log/core.hpp>

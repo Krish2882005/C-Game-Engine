@@ -1,3 +1,5 @@
+//This Is A Beast Engine File Which Has The License Apache 2.0
+
 #include <iostream>
 #include <string>
 #include "RenderText.h"
@@ -334,7 +336,7 @@ void RenderText::Load()
 	TextColour.a = 255;
 }
 
-SDL_Texture* RenderText::CreateNewTexture(const char* Text, SDL_Rect TextRect)
+SDL_Texture* RenderText::CreateNewTexture(const char* Text, SDL_Rect TextRect, const char* Font)
 {
 	TextSurface = TTF_RenderText_Blended(CalibriFont, Text, TextColour);
 	TextTexture = SDL_CreateTextureFromSurface(Init::Renderer, TextSurface);
@@ -346,6 +348,7 @@ SDL_Texture* RenderText::CreateNewTexture(const char* Text, SDL_Rect TextRect)
 
 void RenderText::Draw(SDL_Texture* Texture, SDL_Rect TextRect)
 {
+	
 	SDL_RenderCopy(Init::Renderer, Texture, 0, &TextRect);
 }
 

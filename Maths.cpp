@@ -1,3 +1,5 @@
+//This Is A Beast Engine File Which Has The License Apache 2.0
+
 #include "Maths.h"
 
 Vector2 Maths::AddVector2(Vector2 A, Vector2 B)

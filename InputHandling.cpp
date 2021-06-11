@@ -1,3 +1,5 @@
+//This Is A Beast Engine File Which Has The License Apache 2.0
+
 #include "InputHandling.h"
 #include "Init.h"
 
@@ -198,6 +200,6 @@ char* InputHandling::GetTextInput()
 	{
 		return Init::Event.text.text;
 	}
-
+	
 	return 0;
 }

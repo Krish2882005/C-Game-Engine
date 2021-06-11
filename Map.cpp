@@ -1,5 +1,5 @@
 #include "Map.h"
-#include "TextureManager.h"
+#include "Renderer2D.h"
 #include "CollisionDetection.h"
 #include <iostream>
 
