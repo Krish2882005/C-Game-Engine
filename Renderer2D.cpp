@@ -34,7 +34,7 @@ SDL_Texture* Renderer2D::Load(const char* File)
 		return nullptr;
 	}
 
-	Surface = nullptr;
+	SDL_FreeSurface(Surface);
 
 	return Texture;
 }
