@@ -5,7 +5,6 @@
 
 #include "Init.h"
 #include <iostream>
-#include "Map.h"
 #include "TextureManager.h"
 #include "RenderText.h"
 #include "InputHandling.h"
