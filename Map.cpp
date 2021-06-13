@@ -1,6 +1,5 @@
 #include "Map.h"
 #include "Renderer2D.h"
-#include "CollisionDetection.h"
 #include <iostream>
 
 /*int Level[50][50] =

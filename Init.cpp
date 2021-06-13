@@ -6,7 +6,7 @@
 #include "Init.h"
 #include <iostream>
 #include "Map.h"
-#include "Renderer2D.h"
+#include "TextureManager.h"
 #include "RenderText.h"
 #include "InputHandling.h"
 #include "Logger.h"
@@ -15,9 +15,6 @@
 constexpr int ScreenWidth = 1080;
 constexpr int ScreenHeight = 720;
 
-InputHandling inputhandling;
-//Player player;
-//Map map;
 Logger* logger = new Logger();
 
 SDL_Renderer* Init::Renderer = nullptr;
@@ -90,16 +87,6 @@ void Init::Load()
 
 	logger->LogMessage("Info", "Loading GUI");
 
-	Vector2 Position;
-	Position.X = 100;
-	Position.Y = 100;
-
-	Vector2 Position2;
-	Position2.X = 200;
-	Position2.Y = 200;
-
-	//gui.SubGui("File Importer", Position);
-
 	logger->LogMessage("Info", "Successfully Loaded GUI");
 
 	logger->LogMessage("Info", "Beast Engine Has Loaded Files And Other Tasks Are Succesfully Completed");
@@ -115,30 +102,22 @@ void Init::Events()
 	{
 		m_IsRunning = false;
 	}
-
-	//player.Events();
-	//gui.Events();
 }
 
 void Init::Update()
 {
-	//player.Update();
-	//rendertext.Update();
+	
 }
 
 void Init::Draw()
 {
 	SDL_RenderClear(Renderer);
-	//map.Draw();
-	//player.Draw();
-	//rendertext.Draw();
+	
 	SDL_RenderPresent(Renderer);
 }
 
 void Init::Clean()
 {
-	//player.Clean();
-	//map.Clean();
 	RenderText::Clean();
 	SDL_DestroyWindow(Window);
 	SDL_DestroyRenderer(Renderer);
