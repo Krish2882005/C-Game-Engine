@@ -7,182 +7,182 @@ bool InputHandling::IsKeyDown(const char* Key)
 {
 	if (Init::Event.type == SDL_KEYDOWN)
 	{
-		if (Key == "a" || Key == "A")
+		if (SDL_strcasecmp(Key, "a"))
 		{
 			if (PressedKey[SDL_SCANCODE_A])
 			{
 				return true;
 			}
 		}
-		if (Key == "b" || Key == "B")
+		if (SDL_strcasecmp(Key, "b"))
 		{
 			if (PressedKey[SDL_SCANCODE_B])
 			{
 				return true;
 			}
 		}
-		if (Key == "c" || Key == "C")
+		if (SDL_strcasecmp(Key, "c"))
 		{
 			if (PressedKey[SDL_SCANCODE_C])
 			{
 				return true;
 			}
 		}
-		if (Key == "d" || Key == "D")
+		if (SDL_strcasecmp(Key, "d"))
 		{
 			if (PressedKey[SDL_SCANCODE_D])
 			{
 				return true;
 			}
 		}
-		if (Key == "e" || Key == "E")
+		if (SDL_strcasecmp(Key, "e"))
 		{
 			if (PressedKey[SDL_SCANCODE_E])
 			{
 				true;
 			}
 		}
-		if (Key == "f" || Key == "F")
+		if (SDL_strcasecmp(Key, "f"))
 		{
 			if (PressedKey[SDL_SCANCODE_F])
 			{
 				return true;
 			}
 		}
-		if (Key == "g" || Key == "G")
+		if (SDL_strcasecmp(Key, "g"))
 		{
 			if (PressedKey[SDL_SCANCODE_G])
 			{
 				return true;
 			}
 		}
-		if (Key == "h" || Key == "H")
+		if (SDL_strcasecmp(Key, "h"))
 		{
 			if (PressedKey[SDL_SCANCODE_H])
 			{
 				return true;
 			}
 		}
-		if (Key == "i" || Key == "I")
+		if (SDL_strcasecmp(Key, "i"))
 		{
 			if (PressedKey[SDL_SCANCODE_I])
 			{
 				return true;
 			}
 		}
-		if (Key == "j" || Key == "J")
+		if (SDL_strcasecmp(Key, "j"))
 		{
 			if (PressedKey[SDL_SCANCODE_J])
 			{
 				return true;
 			}
 		}
-		if (Key == "k" || Key == "K")
+		if (SDL_strcasecmp(Key, "k"))
 		{
 			if (PressedKey[SDL_SCANCODE_K])
 			{
 				return true;
 			}
 		}
-		if (Key == "l" || Key == "L")
+		if (SDL_strcasecmp(Key, "l"))
 		{
 			if (PressedKey[SDL_SCANCODE_L])
 			{
 				return true;
 			}
 		}
-		if (Key == "m" || Key == "M")
+		if (SDL_strcasecmp(Key, "m"))
 		{
 			if (PressedKey[SDL_SCANCODE_M])
 			{
 				return true;
 			}
 		}
-		if (Key == "n" || Key == "N")
+		if (SDL_strcasecmp(Key, "n"))
 		{
 			if (PressedKey[SDL_SCANCODE_N])
 			{
 				return true;
 			}
 		}
-		if (Key == "o" || Key == "O")
+		if (SDL_strcasecmp(Key, "o"))
 		{
 			if (PressedKey[SDL_SCANCODE_O])
 			{
 				return true;
 			}
 		}
-		if (Key == "p" || Key == "P")
+		if (SDL_strcasecmp(Key, "p"))
 		{
 			if (PressedKey[SDL_SCANCODE_A])
 			{
 				return true;
 			}
 		}
-		if (Key == "q" || Key == "Q")
+		if (SDL_strcasecmp(Key, "q"))
 		{
 			if (PressedKey[SDL_SCANCODE_Q])
 			{
 				return true;
 			}
 		}
-		if (Key == "r" || Key == "R")
+		if (SDL_strcasecmp(Key, "r"))
 		{
 			if (PressedKey[SDL_SCANCODE_R])
 			{
 				return true;
 			}
 		}
-		if (Key == "s" || Key == "S")
+		if (SDL_strcasecmp(Key, "s"))
 		{
 			if (PressedKey[SDL_SCANCODE_S])
 			{
 				return true;
 			}
 		}
-		if (Key == "t" || Key == "T")
+		if (SDL_strcasecmp(Key, "t"))
 		{
 			if (PressedKey[SDL_SCANCODE_T])
 			{
 				return true;
 			}
 		}
-		if (Key == "u" || Key == "U")
+		if (SDL_strcasecmp(Key, "u"))
 		{
 			if (PressedKey[SDL_SCANCODE_U])
 			{
 				return true;
 			}
 		}
-		if (Key == "v" || Key == "V")
+		if (SDL_strcasecmp(Key, "v"))
 		{
 			if (PressedKey[SDL_SCANCODE_V])
 			{
 				return true;
 			}
 		}
-		if (Key == "w" || Key == "W")
+		if (SDL_strcasecmp(Key, "w"))
 		{
 			if (PressedKey[SDL_SCANCODE_X])
 			{
 				return true;
 			}
 		}
-		if (Key == "x" || Key == "X")
+		if (SDL_strcasecmp(Key, "x"))
 		{
 			if (PressedKey[SDL_SCANCODE_X])
 			{
 				return true;
 			}
 		}
-		if (Key == "y" || Key == "Y")
+		if (SDL_strcasecmp(Key, "y"))
 		{
 			if (PressedKey[SDL_SCANCODE_Y])
 			{
 				return true;
 			}
 		}
-		if (Key == "z" || Key == "Z")
+		if (SDL_strcasecmp(Key, "z"))
 		{
 			if (PressedKey[SDL_SCANCODE_Z])
 			{
