@@ -49,6 +49,7 @@ bool TileMap::DeleteTileMap(int TileMapNumber)
 		TileMaps[TileMapNumber].Textures.clear();
 		TileMaps[TileMapNumber].TextureSize = 0;
 	}
+
 	return true;
 }
 
