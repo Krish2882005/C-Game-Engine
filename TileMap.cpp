@@ -36,11 +36,20 @@ int TileMap::AddTileMap(TileMapCore core)
 
 bool TileMap::DeleteTileMap(int TileMapNumber)
 {
-	TileMaps[TileMapNumber].TileMapEnabled = false;
-	TileMaps[TileMapNumber].Level.clear();
-	TileMaps[TileMapNumber].TextureNumber.clear();
-	TileMaps[TileMapNumber].Textures.clear();
-	TileMaps[TileMapNumber].TextureSize = 0;
+	if (TileMapNumber > TileMaps.size())
+	{
+		//Error
+		return false;
+	}
+	else
+	{
+		TileMaps[TileMapNumber].TileMapEnabled = false;
+		TileMaps[TileMapNumber].Level.clear();
+		TileMaps[TileMapNumber].TextureNumber.clear();
+		TileMaps[TileMapNumber].Textures.clear();
+		TileMaps[TileMapNumber].TextureSize = 0;
+	}
+	return true;
 }
 
 void TileMap::Update()
