@@ -4,7 +4,6 @@
 #include <string>
 #include "RenderText.h"
 #include "Init.h"
-#include "Logger.h"
 
 
 TTF_Font* CalibriFont = nullptr;

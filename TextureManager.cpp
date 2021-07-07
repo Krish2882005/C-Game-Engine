@@ -9,7 +9,7 @@
 SDL_Surface* Surface = nullptr;
 SDL_Texture* Texture = nullptr;
 
-int Renderer2D::Init()
+int TextureManager::Init()
 {
 	if (SDL_Init(IMG_INIT_PNG) != 0)
 	{
@@ -19,7 +19,7 @@ int Renderer2D::Init()
 	return 0;
 }
 
-SDL_Texture* Renderer2D::Load(const char* File)
+SDL_Texture* TextureManager::Load(const char* File)
 {
 	Surface = IMG_Load(File);
 	if (Surface == nullptr)
@@ -39,7 +39,7 @@ SDL_Texture* Renderer2D::Load(const char* File)
 	return Texture;
 }
 
-void Renderer2D::Draw(SDL_Texture* Texture, SDL_Rect* SrcRect, SDL_Rect* DstRect, SDL_RendererFlip Flip)
+void TextureManager::Draw(SDL_Texture* Texture, SDL_Rect* SrcRect, SDL_Rect* DstRect, SDL_RendererFlip Flip)
 {
 	SDL_RenderCopyEx(Init::Renderer, Texture, SrcRect, DstRect, 0, nullptr, Flip);
 }

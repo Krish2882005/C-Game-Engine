@@ -29,7 +29,7 @@ void Init::Init_SDL2()
 
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		if (Renderer2D::Init() != 0)
+		if (TextureManager::Init() != 0)
 		{
 			m_IsRunning = false;
 			logger->LogMessage("Error", SDL_GetError());
@@ -70,9 +70,6 @@ void Init::Init_SDL2()
 		return;
 	}
 
-	//map.Init();
-	//player.Init();
-
 	logger->LogMessage("Info", "Beast Engine Has Successfully Initialized And Other Tasks Are Completed");
 }
 
@@ -80,8 +77,6 @@ void Init::Load()
 {
 	logger->LogMessage("Info", "Loading Files And Other Tasks");
 
-	//player.Load();
-	//map.Load();
 	RenderText::Load();
 
 	logger->LogMessage("Info", "Loading GUI");

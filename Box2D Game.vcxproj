@@ -163,7 +163,7 @@
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="RenderText.cpp" />
     <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="Vector2.cpp" />
+    <ClCompile Include="TileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Init.h" />
@@ -172,6 +172,7 @@
     <ClInclude Include="Maths.h" />
     <ClInclude Include="RenderText.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="TileMap.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

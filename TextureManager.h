@@ -4,7 +4,7 @@
 #pragma once
 #include "Init.h"
 
-class Renderer2D
+class TextureManager
 {
 public:
 	static int Init();
