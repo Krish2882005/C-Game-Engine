@@ -17,6 +17,7 @@ int TileMap::AddTileMap(TileMapCore core)
 		if (core.Textures[i] == nullptr)
 		{
 			//Error
+			return;
 		}
 	}
 
